@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Text, Float, MeshDistortMaterial, Sphere, OrbitControls, Stars } from '@react-three/drei';
 import profilePic from './reggie-pic.png';
+import resumePDF from './segovia_resume.pdf';
+import cvPDF from './segovia_cv.pdf';
 
 const AnimatedBackground = () => {
   const meshRef = useRef();
@@ -1288,7 +1290,8 @@ const Portfolio = () => {
               { icon: "📧", label: "Email", isEmail: true },
               { icon: "💼", label: "LinkedIn", href: "https://www.linkedin.com/in/reggie-segovia/" },
               { icon: "🐙", label: "GitHub", href: "https://github.com/rs-dkd" },
-              { icon: "📄", label: "CV", href: "segovia_cv.pdf" },
+              { icon: "📄", label: "Resume", href: resumePDF },
+              { icon: "📄", label: "CV", href: cvPDF },
               { icon: "🌐", label: "Portfolio", href: "https://rs-dkd.github.io/my-portfolio/" }
             ].map((link, index) => (
               link.isEmail ? (
@@ -1315,6 +1318,8 @@ const Portfolio = () => {
                   key={index}
                   href={link.href}
                   style={styles.socialLink}
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   onMouseEnter={(e) => {
                     e.target.style.background = 'rgba(255, 255, 255, 0.15)';
                     e.target.style.transform = 'scale(1.05) translateY(-2px)';
