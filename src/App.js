@@ -195,112 +195,84 @@ const Portfolio = () => {
 
   const researchProjects = [
     {
-      title: "AI-Powered Projected Reality",
+      title: "Graspable Memories: AI-Powered Projected Reality",
       type: "HCI Research",
-      description: "Submitted to a top-tier conference (under review). Developed a projected reality system using AI hand tracking to enable seamless on-hand interaction with images, leveraging natural occlusion as a core interaction mechanism rather than avoiding it.",
-      tech: ["Computer Vision", "AI Hand Tracking", "Projected Reality", "HCI"],
+      description: "Submitted to IEEE AIxVR 2026. Developed an Embodied Projected Mixed Reality system using AI hand tracking to enable seamless on-hand interaction with images, leveraging natural occlusion as a core interaction mechanism.",
+      tech: ["Computer Vision", "AI Hand Tracking", "Projected Reality", "HCI", "Unity", "MediaPipe"],
       status: "Under Review",
       collaboration: "Dr. Alexandre Gomes de Siqueira",
       links: { },
-      images: [
-      ]
+      images: []
     },
     {
-      title: "BlendReality: VR Blender with PNS Optimization",
-      type: "Graphics Research", 
-      description: "Building a VR recreation of Blender utilizing optimized polyhedral net splines (PNS) algorithm for quad-dominant mesh smoothing, enabling intuitive 3D modeling interaction in virtual reality.",
-      tech: ["VR", "Computer Graphics", "PNS Algorithm", "3D Modeling", "Unity"],
-      status: "In Progress",
-      collaboration: "Dr. Jorg Peters",
-      links: { github: "https://github.com/rs-dkd/BlendReality" },
-      images: [
-      "/path",
-      "/path",
-      "/path"
-      ]
-    },
-    {
-      title: "Flood Risk Digital Twins in VR/AR",
-      type: "AI & Simulation",
-      description: "Working with Karla Saldana Ochoa to create flood risk simulations using AI and digital twins in virtual/augmented reality environments for climate resilience planning.",
-      tech: ["AI", "Digital Twins", "VR/AR", "Climate Modeling", "Unity"],
-      status: "In Progress",
-      collaboration: "Dr. Karla Saldaña Ochoa",
-      links: { },
-      images: [
-      "/path",
-      "/path",
-      "/path"
-      ]
-    },
-    {
-      title: "VirtualHuman 2.0: Conversational AI in VR",
-      type: "AI & VR",
-      description: "Developed VR conversational AI with speech-to-text using Whisper, LLM integration with Gemini, ElevenLabs TTS, and real-time lip-sync using NeuroSync with LiveLink in Unreal Engine.",
-      tech: ["VR", "Whisper", "Gemini API", "ElevenLabs", "NeuroSync", "Unreal Engine", "LLM"],
+      title: "Beyond the Grasp: Volumetric EPMR (Senior Thesis)",
+      type: "HCI Research",
+      description: "Extended the Graspable Memories platform into a fully volumetric interaction model supporting hand tilt, improved tracking latency, continuous rotation, and spatial depth as control inputs. Broadened EPMR applications from personal media to collaborative creative systems.",
+      tech: ["Embodied Interaction", "Volumetric Gestures", "HCI", "Unity", "Spatial Computing"],
       status: "In Progress",
       collaboration: "Dr. Alexandre Gomes de Siqueira",
       links: {},
-      images: [
-      "/path",
-      "/path",
-      "/path"
-      ]
+      images: []
     },
     {
-      title: "AR-Guided Neonatal Physical Therapy",
-      type: "Medical AR",
-      description: "Developing an augmented reality application to guide parents of infants with brain injuries through prescribed physical therapy exercises at home, creating interactive AR visualization of therapeutic movements.",
-      tech: ["AR", "Computer Vision", "Medical Visualization", "Unity", "Interactive Guidance"],
+      title: "VirtualHuman 2.0: Conversational AI in VR",
+      type: "HCI & AI",
+      description: "Developed immersive VR conversational AI with full-stack speech pipeline (Whisper STT, Gemini LLM, ElevenLabs TTS) and NeuroSync lip-sync. Leading integration of agentic AI framework for autonomous reasoning capabilities.",
+      tech: ["VR", "Conversational AI", "HCI", "Whisper", "Gemini", "ElevenLabs", "Unreal Engine", "Agentic AI"],
       status: "In Progress",
-      collaboration: "Dr. Jorg Peters & Dr. Weiss, Shands Hospital",
+      collaboration: "Dr. Alexandre Gomes de Siqueira",
       links: {},
-      images: [
-      "/path",
-      "/path",
-      "/path"
-      ]
+      images: []
     },
     {
-      title: "EASAL CUDA Parallelization",
-      type: "HPC Research",
-      description: "Developed CUDA and OpenCL parallelization strategies for molecular assembly landscape analysis, achieving 4x performance improvements in vertex localizations and matrix transformations.",
-      tech: ["CUDA", "OpenCL", "C++", "Parallel Computing", "Computational Geometry"],
-      status: "Completed",
-      collaboration: "EASAL Lab",
+      title: "Embodied Inscriptions: Fingerprints as Interactive Traces",
+      type: "Tangible HCI",
+      description: "Designed UI and led user evaluation for system repositioning fingerprints as expressive traces of presence and memory embedded in sculptable materials. Contributed to fingerprint tracking system development using computer vision.",
+      tech: ["Tangible Interfaces", "Computer Vision", "HCI", "UI Design", "User Evaluation"],
+      status: "In Progress",
+      collaboration: "Dr. Alexandre Gomes de Siqueira",
       links: {},
-      images: [
-      "/path",
-      "/path",
-      "/path"
-      ]
+      images: []
+    },
+    {
+      title: "BlendReality: VR 3D Modeling",
+      type: "Graphics & HCI",
+      description: "Leading development of VR recreation of Blender with intuitive spatial modeling operations. Implementing natural hand gesture paradigms to replace traditional mouse-keyboard interfaces for 3D modeling workflows.",
+      tech: ["VR", "Spatial Computing", "3D Modeling", "HCI", "Unity", "Polyhedral-Net Splines"],
+      status: "In Progress",
+      collaboration: "Dr. Jörg Peters",
+      links: { github: "https://github.com/rs-dkd/BlendReality" }, images: []
+      },
+    {
+      title: "AR-Guided Neonatal Occupational Therapy",
+      type: "Medical AR/VR",
+      description: "Designing VR/AR platform for neonatal occupational therapy training in collaboration with Shands Hospital. Created VR training environment and AR passthrough interface for guided parent exercises with real-time feedback.",
+      tech: ["AR", "VR", "Medical Visualization", "HCI", "Unity", "Interactive Guidance"],
+      status: "In Progress",
+      collaboration: "Dr. Jörg Peters & Dr. Weiss, Shands Hospital",
+      links: {},
+      images: []
+    },
+    {
+      title: "FloodRisk Digital Twins in VR/AR",
+      type: "Environmental HCI",
+      description: "Creating AI-powered flood risk simulations using digital twins in VR/AR for climate resilience planning. Designed VR interface with user tagging system for perceived damage/risk assessment and data-driven UI for subjective perception capture.",
+      tech: ["VR/AR", "Digital Twins", "Environmental HCI", "Unity", "Unreal Engine", "User Interface Design"],
+      status: "In Progress",
+      collaboration: "Dr. Karla Saldaña Ochoa",
+      links: {},
+      images: []
     }
   ];
 
   const personalProjects = [
     {
-      title: "Stock Price Prediction with Twitter Sentiment",
-      type: "Data Science",
-      description: "Built machine learning models combining Twitter sentiment analysis with historical stock data, featuring interactive Streamlit visualizations for investment insights.",
-      tech: ["Python", "NLP", "Machine Learning", "Streamlit", "Twitter API"],
-      links: { github: "https://github.com/rs-dkd/SentimentStockAnalysis"},
-      images: [
-      "/path",
-      "/path",
-      "/path"
-      ]
-    },
-    {
-      title: "Echo Journal: AI-Powered Journaling",
-      type: "Mobile App",
-      description: "iOS app using CoreML and custom NLP models to analyze emotions from journal entries, providing personalized recommendations and mood tracking.",
-      tech: ["Swift", "CoreML", "NLP", "iOS", "Core Data"],
-      links: { github: "https://github.com/rs-dkd/EchoJournal" },
-      images: [
-      "/path",
-      "/path",
-      "/path"
-      ]
+      title: "Disaster Response AI Simulator",
+      type: "AI & Simulation",
+      description: "Dynamic traffic and emergency response simulator in Unity using intelligent agents with A* pathfinding. Models real-time civilian evacuation and emergency vehicle routing during disasters (fires, floods, accidents) in a GIS-based virtual city environment.",
+      tech: ["Unity", "C#", "A* Pathfinding", "AI Agents", "ArcGIS CityEngine", "FSM", "Decision Trees"],
+      links: { github: "https://github.com/rs-dkd/DisasterResponseAI" },
+      images: []
     },
     {
       title: "Everglades VR Experience",
@@ -308,11 +280,23 @@ const Portfolio = () => {
       description: "Immersive VR adventure exploring the Everglades with realistic flora/fauna animations, designed to enhance conservation awareness through interactive education.",
       tech: ["Unity", "C#", "VR", "3D Modeling", "Environmental Design"],
       links: { github: "https://github.com/rs-dkd/EvergladesVR" },
-      images: [
-      "/path",
-      "/path",
-      "/path"
-      ]
+      images: []
+    },
+    {
+      title: "Echo Journal: AI-Powered Journaling",
+      type: "Mobile App",
+      description: "iOS app using CoreML and custom NLP models to analyze emotions from journal entries, providing personalized recommendations and mood tracking.",
+      tech: ["Swift", "CoreML", "NLP", "iOS", "Core Data"],
+      links: { github: "https://github.com/rs-dkd/EchoJournal" },
+      images: []
+    },
+    {
+      title: "Stock Price Prediction with Twitter Sentiment",
+      type: "Data Science",
+      description: "Built machine learning models combining Twitter sentiment analysis with historical stock data, featuring interactive Streamlit visualizations for investment insights.",
+      tech: ["Python", "NLP", "Machine Learning", "Streamlit", "Twitter API"],
+      links: { github: "https://github.com/rs-dkd/SentimentStockAnalysis"},
+      images: []
     },
     {
       title: "College Football Statistics Analysis",
@@ -320,11 +304,7 @@ const Portfolio = () => {
       description: "Comprehensive trend analysis system for college football data spanning 2004-2024 with 500,000+ tuples. Built React frontend with C#/.NET backend and Oracle database.",
       tech: ["C#/.NET", "React", "Oracle Database", "D3.js", "Chart.js"],
       links: { github: "https://github.com/rs-dkd/CollegeFootballStats" },
-      images: [
-      "/path",
-      "/path",
-      "/path"
-      ]
+      images: []
     },
     {
       title: "Programming Language Interpreter",
@@ -332,11 +312,7 @@ const Portfolio = () => {
       description: "Architected a complete language processing pipeline with Lexer, Parser, Analyzer, and custom programming language supporting variables, control structures, and functions.",
       tech: ["Java", "Compiler Design", "Abstract Syntax Trees", "Symbol Tables"],
       links: { github: "https://github.com/rs-dkd/Programming_Language_Interpreter" },
-      images: [
-      "/path",
-      "/path",
-      "/path"
-      ]
+      images: []
     },
     {
       title: "Route Optimization Visualization",
@@ -344,43 +320,11 @@ const Portfolio = () => {
       description: "Developed and compared A* and Dijkstra's pathfinding algorithms for real-world city navigation with interactive visualization using Bridges API.",
       tech: ["C++", "Bridges API", "Pathfinding Algorithms", "Data Structures"],
       links: { github: "https://github.com/rs-dkd/RouteOptimization" },
-      images: [
-      "/path",
-      "/path",
-      "/path"
-      ]
+      images: []
     }
   ];
 
-    const skillCategories = [
-    {
-      icon: "🤖",
-      title: "AI & Machine Learning",
-      skills: ["TensorFlow", "PyTorch", "Computer Vision", "NLP", "Deep Learning", "MediaPipe"],
-      style: {
-        background: 'rgba(34, 197, 94, 0.1)',
-        borderColor: 'rgba(34, 197, 94, 0.4)',
-        tagBackground: 'rgba(34, 197, 94, 0.2)',
-        tagBorderColor: 'rgba(34, 197, 94, 0.3)',
-        tagColor: '#86efac',
-        tagHoverBackground: 'linear-gradient(135deg, #059669, #06b6d4)',
-        tagHoverShadow: '0 8px 25px rgba(34, 197, 94, 0.4)',
-      }
-    },
-    {
-      icon: "🚀",
-      title: "High-Performance Computing",
-      skills: ["CUDA", "OpenCL", "Parallel Computing", "C++", "GPU Optimization", "Mathematical Computing"],
-      style: {
-        background: 'rgba(124, 58, 237, 0.1)',
-        borderColor: 'rgba(124, 58, 237, 0.4)',
-        tagBackground: 'rgba(124, 58, 237, 0.2)',
-        tagBorderColor: 'rgba(124, 58, 237, 0.3)',
-        tagColor: '#c4b5fd',
-        tagHoverBackground: 'linear-gradient(135deg, #7c3aed, #ec4899)',
-        tagHoverShadow: '0 8px 25px rgba(124, 58, 237, 0.4)',
-      }
-    },
+  const skillCategories = [
     {
       icon: "🥽",
       title: "Immersive Technologies (VR/AR)",
@@ -396,23 +340,23 @@ const Portfolio = () => {
       }
     },
     {
-      icon: "📱",
-      title: "Web & Mobile Development",
-      skills: ["React", "JavaScript", "Swift (iOS)", "C#/.NET", "PHP", "Web Development", "API Integration"],
+      icon: "🤖",
+      title: "AI & Machine Learning",
+      skills: ["Computer Vision", "NLP", "TensorFlow", "PyTorch", "MediaPipe", "LLM Integration", "Agentic AI"],
       style: {
-        background: 'rgba(251, 146, 60, 0.1)',
-        borderColor: 'rgba(251, 146, 60, 0.4)',
-        tagBackground: 'rgba(251, 146, 60, 0.2)',
-        tagBorderColor: 'rgba(251, 146, 60, 0.3)',
-        tagColor: '#fed7aa',
-        tagHoverBackground: 'linear-gradient(135deg, #ea580c, #f59e0b)',
-        tagHoverShadow: '0 8px 25px rgba(251, 146, 60, 0.4)',
+        background: 'rgba(34, 197, 94, 0.1)',
+        borderColor: 'rgba(34, 197, 94, 0.4)',
+        tagBackground: 'rgba(34, 197, 94, 0.2)',
+        tagBorderColor: 'rgba(34, 197, 94, 0.3)',
+        tagColor: '#86efac',
+        tagHoverBackground: 'linear-gradient(135deg, #059669, #06b6d4)',
+        tagHoverShadow: '0 8px 25px rgba(34, 197, 94, 0.4)',
       }
     },
     {
-      icon: "⚙️",
-      title: "Systems & Compilers",
-      skills: ["C++", "Java", "C", "Operating Systems", "Compiler Design", "Linux", "Git"],
+      icon: "🎨",
+      title: "HCI & Interaction Design",
+      skills: ["User Evaluation", "Tangible Interfaces", "Embodied Interaction", "UI/UX Design", "Spatial Interaction", "Natural User Interfaces"],
       style: {
         background: 'rgba(236, 72, 153, 0.1)',
         borderColor: 'rgba(236, 72, 153, 0.4)',
@@ -424,9 +368,37 @@ const Portfolio = () => {
       }
     },
     {
-      icon: "📊",
-      title: "Databases & Data Science",
-      skills: ["Oracle Database", "MySQL", "Data Science", "Python", "Streamlit", "D3.js"],
+      icon: "🎮",
+      title: "Graphics & 3D Modeling",
+      skills: ["Blender", "3D Modeling", "Polyhedral-Net Splines", "Mesh Processing", "Procedural Generation", "ArcGIS Pro"],
+      style: {
+        background: 'rgba(251, 146, 60, 0.1)',
+        borderColor: 'rgba(251, 146, 60, 0.4)',
+        tagBackground: 'rgba(251, 146, 60, 0.2)',
+        tagBorderColor: 'rgba(251, 146, 60, 0.3)',
+        tagColor: '#fed7aa',
+        tagHoverBackground: 'linear-gradient(135deg, #ea580c, #f59e0b)',
+        tagHoverShadow: '0 8px 25px rgba(251, 146, 60, 0.4)',
+      }
+    },
+    {
+      icon: "💻",
+      title: "Programming Languages",
+      skills: ["Python", "C++", "C#", "Swift", "JavaScript", "Java"],
+      style: {
+        background: 'rgba(124, 58, 237, 0.1)',
+        borderColor: 'rgba(124, 58, 237, 0.4)',
+        tagBackground: 'rgba(124, 58, 237, 0.2)',
+        tagBorderColor: 'rgba(124, 58, 237, 0.3)',
+        tagColor: '#c4b5fd',
+        tagHoverBackground: 'linear-gradient(135deg, #7c3aed, #ec4899)',
+        tagHoverShadow: '0 8px 25px rgba(124, 58, 237, 0.4)',
+      }
+    },
+    {
+      icon: "🚀",
+      title: "High-Performance Computing",
+      skills: ["CUDA", "OpenCL", "Parallel Computing", "GPU Optimization", "HiperGator Cluster"],
       style: {
         background: 'rgba(59, 130, 246, 0.1)',
         borderColor: 'rgba(59, 130, 246, 0.4)',
@@ -441,94 +413,100 @@ const Portfolio = () => {
 
   const skillAreas = [
     { 
+      name: "VR/AR", 
+      color: "#4ecdc4", 
+      position: [0, 2, 0],
+      description: "Unity XR, Unreal Engine, Spatial Computing"
+    },
+    { 
       name: "AI/ML", 
       color: "#ff6b6b", 
-      position: [0, 2, 0],
-      description: "Deep Learning, NLP, Computer Vision"
+      position: [2.5, 1, 0],
+      description: "Computer Vision, NLP, LLM Integration"
+    },
+    { 
+      name: "HCI", 
+      color: "#fa7343", 
+      position: [2.5, -1, 0],
+      description: "Tangible Interfaces, Embodied Interaction"
+    },
+    { 
+      name: "Graphics", 
+      color: "#45b7d1", 
+      position: [0, -2, 0],
+      description: "3D Modeling, Mesh Processing"
+    },
+    { 
+      name: "Mobile", 
+      color: "#a78bfa", 
+      position: [-2.5, -1, 0],
+      description: "Swift, iOS Development, CoreML"
     },
     { 
       name: "HPC", 
       color: "#76b900", 
-      position: [2.5, 1, 0],
-      description: "CUDA, Parallel Computing, Optimization"
-    },
-    { 
-      name: "VR/AR", 
-      color: "#4ecdc4", 
-      position: [2.5, -1, 0],
-      description: "Unity XR, Unreal Engine, Spatial Computing"
-    },
-    { 
-      name: "Web/Mobile", 
-      color: "#45b7d1", 
-      position: [0, -2, 0],
-      description: "React, JavaScript, Swift (iOS)"
-    },
-    { 
-      name: "Systems", 
-      color: "#fa7343", 
-      position: [-2.5, -1, 0],
-      description: "C++, Java, Compilers, Linux"
-    },
-    { 
-      name: "Databases", 
-      color: "#a78bfa", 
       position: [-2.5, 1, 0],
-      description: "Oracle, MySQL, Data Science"
+      description: "CUDA, Parallel Computing"
     }
   ];
 
-  const workExperience = [
+  const researchExperience = [
     {
       title: "Research Assistant - HCI Lab",
       company: "University of Florida",
       period: "Apr 2025 - Present",
       location: "Gainesville, FL",
-      description: "Leading development of an AI-powered projected reality system enabling on-hand interaction with images using natural occlusion as the core interaction mechanism.",
+      description: "Leading development of multiple HCI research projects focused on projected reality, conversational AI, and tangible interfaces under Dr. Alexandre Gomes de Siqueira.",
       achievements: [
-        "Engineered AI hand tracking algorithms for real-time gesture recognition and spatial interaction",
-        "Submitted research paper to top-tier conference on projected reality interfaces",
-        "Architected VR conversational AI in Unreal Engine with full-stack speech pipeline",
-        "Integrated Whisper (STT), Gemini (LLM), ElevenLabs (TTS), and NeuroSync for realistic lip-syncing"
+        "Lead developer of AI-powered projected reality system (Graspable Memories) - paper submitted to IEEE AIxVR 2026",
+        "Extending platform into fully volumetric interaction model for senior thesis (Beyond the Grasp)",
+        "Built VR conversational AI system integrating Whisper, Gemini LLM, ElevenLabs TTS, and NeuroSync lip-sync",
+        "Leading integration of agentic AI framework with autonomous reasoning capabilities",
+        "Designed UI and conducted user evaluation for Embodied Inscriptions fingerprint tracking system"
       ],
-      tech: ["Computer Vision", "AI Hand Tracking", "Unity", "Unreal Engine", "Python", "C#"]
-    },
-    {
-      title: "Research Assistant - AI-Share Lab",
-      company: "University of Florida",
-      period: "Jun 2025 - Present",
-      location: "Gainesville, FL", 
-      description: "Developing digital twin simulations in VR/AR for flood risk analysis and climate resilience planning with Dr. Karla Saldaña Ochoa.",
-      achievements: [
-        "Evaluated 3D modeling workflows (ArcGIS Pro, BlenderGIS) to generate realistic building models from geospatial data",
-        "Authored Blender scripts to automate data filtering and mesh optimization for large-scale urban environments",
-        "Integrated AI models for flood pattern prediction using HiperGator high-performance computing cluster",
-        "Created AI-powered flood risk simulations using digital twins in virtual/augmented reality environments"
-      ],
-      tech: ["AI", "Digital Twins", "VR/AR", "ArcGIS Pro", "Blender", "Unity", "Python"]
+      tech: ["Unity", "Unreal Engine", "Computer Vision", "MediaPipe", "LLMs", "VR", "HCI Research"]
     },
     {
       title: "Research Assistant - SurfLab",
       company: "University of Florida",
       period: "May 2025 - Present",
-      location: "Gainesville, FL",
-      description: "Developing VR version of Blender using optimized polyhedral-net splines (PNS) for real-time mesh smoothing and intuitive 3D modeling with Dr. Jorg Peters.",
+      location: "Gainesville, FL", 
+      description: "Developing VR 3D modeling platform and AR medical applications under Dr. Jörg Peters, focusing on intuitive spatial interaction paradigms.",
       achievements: [
-        "Implemented intuitive spatial interaction paradigms for 3D modeling workflows in VR",
-        "Optimized PNS computational performance for real-time VR rendering",
-        "Collaborated on AR-guided therapy application with Shands Hospital for neonatal physical therapy",
-        "Created interactive AR visualizations with real-time feedback for therapeutic exercises"
+        "Lead developer of BlendReality: VR recreation of Blender with natural hand gesture interfaces",
+        "Integrated Polyhedral-Net-Splines algorithms for real-time mesh smoothing in VR",
+        "Designed VR/AR platform for neonatal occupational therapy in collaboration with Shands Hospital",
+        "Created VR training environment and AR passthrough interface with real-time feedback systems",
+        "Compiled literature on VR modeling best practices to establish intuitive interaction paradigms"
       ],
-      tech: ["VR", "Computer Graphics", "PNS Algorithm", "Unity", "AR", "Medical Visualization"]
+      tech: ["Unity", "VR", "AR", "Computer Graphics", "Medical Visualization", "Spatial Interaction"]
     },
     {
-      title: "Teaching Assistant - Introduction to Virtual Reality",
+      title: "Research Assistant - AI-Share Lab",
+      company: "University of Florida",
+      period: "Jun 2025 - Present",
+      location: "Gainesville, FL",
+      description: "Developing VR/AR digital twin simulations for flood risk analysis and climate resilience planning with Dr. Karla Saldaña Ochoa.",
+      achievements: [
+        "Designed VR flood simulation interface with user tagging system for damage/risk assessment",
+        "Created data-driven UI for capturing subjective perceptions in immersive environments",
+        "Led comparative study of procedural modeling workflows (ArcGIS Pro, CityEngine, BlenderGIS)",
+        "Modeled 20+ buildings using real-world textures from GIS data and Street View imagery",
+        "Developed Python automation scripts for mesh optimization in large-scale urban environments"
+      ],
+      tech: ["VR", "AR", "Unity", "Unreal Engine", "Digital Twins", "Environmental HCI", "Python"]
+    }
+  ];
+
+  const workExperience = [
+    {
+      title: "Peer Mentor - Introduction to Virtual Reality",
       company: "University of Florida",
       period: "Aug 2025 - Present",
       location: "Gainesville, FL",
-      description: "Supporting instruction for undergraduate Virtual Reality course, facilitating hands-on learning with Unity XR development and spatial computing concepts.",
+      description: "Supporting instruction for undergraduate VR course with 150+ students, facilitating hands-on learning with Unity XR development.",
       achievements: [
-        "Mentor and support 150+ undergraduate students in hands-on Unity XR development course",
+        "Mentor 150+ undergraduate students in Unity XR development and spatial computing concepts",
         "Lead lab sessions covering VR hardware setup, tracking systems, and spatial interaction design",
         "Provide detailed feedback on 3D programming concepts and C# programming",
         "Assist students in debugging complex VR applications, improving overall project quality"
@@ -536,32 +514,18 @@ const Portfolio = () => {
       tech: ["Unity XR", "C#", "VR Development", "Spatial Computing", "Teaching"]
     },
     {
-      title: "Research Assistant - EASAL Lab",
-      company: "University of Florida",
-      period: "Mar 2025 - Aug 2025", 
-      location: "Gainesville, FL",
-      description: "Conducted research to identify computational bottlenecks in EASAL software for analyzing molecular assembly landscapes and implemented CUDA-based parallelization strategies.",
-      achievements: [
-        "Achieved over 4x speedups in vertex localizations and matrix transformations for molecular assemblies",
-        "Developed CUDA and OpenCL parallelization strategies for edge length calculations",
-        "Extended algorithms to multi-body systems while maintaining mathematical consistency",
-        "Collaborated with interdisciplinary team on active constraint graphs and Cayley parametrization"
-      ],
-      tech: ["CUDA", "OpenCL", "C++", "Parallel Computing", "Computational Geometry", "Mathematical Modeling"]
-    },
-    {
       title: "Web Development Intern",
       company: "Aquarelle Realty",
       period: "Feb 2023 - Jan 2025",
       location: "Orlando, FL",
-      description: "Developed and maintained full-stack web functionalities for real estate platform, integrating various API features for high-traffic platform.",
+      description: "Developed and maintained full-stack web functionalities for real estate platform, integrating various API features.",
       achievements: [
         "Developed full-stack web functionalities using PHP, JavaScript, CSS, and MySQL",
-        "Integrated third-party APIs for self-updating property listings, mortgage calculations, and geolocation services",
-        "Optimized website performance and search rankings through targeted SEO implementation",
-        "Enhanced user experience for real estate agents and clients through intuitive interface design"
+        "Integrated third-party APIs for property listings, mortgage calculations, and geolocation",
+        "Optimized website performance and search rankings through SEO implementation",
+        "Enhanced user experience through intuitive interface design"
       ],
-      tech: ["JavaScript", "PHP", "MySQL", "CSS", "API Integration", "SEO"]
+      tech: ["JavaScript", "PHP", "MySQL", "CSS", "API Integration"]
     }
   ];
 
@@ -660,21 +624,6 @@ const Portfolio = () => {
       flexDirection: 'column',
       gap: '1rem',
       zIndex: 39
-    },
-    controlButtons: {
-      display: 'flex',
-      gap: '1rem'
-    },
-    controlButton: {
-      background: 'rgba(124, 58, 237, 0.2)',
-      color: 'white',
-      border: '1px solid rgba(124, 58, 237, 0.3)',
-      padding: '0.5rem 1rem',
-      borderRadius: '20px',
-      cursor: 'pointer',
-      transition: 'all 0.3s ease',
-      fontSize: '0.9rem',
-      backdropFilter: 'blur(10px)'
     },
     hero: {
       position: 'relative',
@@ -792,7 +741,7 @@ const Portfolio = () => {
       WebkitBackgroundClip: 'text',
       backgroundClip: 'text',
       color: 'transparent'
-      },
+    },
     statLabel: {
       fontSize: '0.9rem',
       color: '#9ca3af',
@@ -830,7 +779,7 @@ const Portfolio = () => {
       objectPosition: '50% 30%'
     },
     skillsContainer: {
-      height: '0px',
+      height: '600px',
       position: 'relative',
       maxWidth: '1200px',
       margin: '0 auto'
@@ -850,12 +799,6 @@ const Portfolio = () => {
       overflow: 'hidden',
       transition: 'all 0.4s ease',
       position: 'relative'
-    },
-    projectImage: {
-      width: '100%',
-      height: '220px',
-      objectFit: 'cover',
-      borderRadius: '24px 24px 0 0'
     },
     projectHeader: {
       height: '220px',
@@ -994,62 +937,12 @@ const Portfolio = () => {
       paddingLeft: '1rem',
       position: 'relative'
     },
-    educationGrid: {
-      display: 'grid',
-      gap: '2rem',
-      maxWidth: '1200px',
-      margin: '0 auto'
-    },
-    educationCard: {
-      background: 'rgba(255, 255, 255, 0.05)',
-      backdropFilter: 'blur(20px)',
-      border: '1px solid rgba(255, 255, 255, 0.1)',
-      borderRadius: '24px',
-      padding: '2.5rem',
-      transition: 'all 0.3s ease'
-    },
-    degreeTitle: {
-      fontSize: '1.6rem',
-      fontWeight: 'bold',
-      color: 'white',
-      marginBottom: '0.5rem'
-    },
-    institution: {
-      color: '#a78bfa',
-      fontSize: '1.2rem',
-      fontWeight: '600',
-      marginBottom: '0.5rem'
-    },
-    educationDetails: {
-      color: '#9ca3af',
-      fontSize: '1rem'
-    },
     periodBadge: {
       background: 'linear-gradient(45deg, #7c3aed, #ec4899)',
       padding: '0.75rem 1.5rem',
       borderRadius: '25px',
       fontSize: '0.9rem',
       fontWeight: '600'
-    },
-    courseworkTitle: {
-      fontSize: '1.2rem',
-      fontWeight: '600',
-      color: 'white',
-      marginBottom: '1.5rem'
-    },
-    courseworkGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-      gap: '0.75rem'
-    },
-    courseItem: {
-      background: 'rgba(124, 58, 237, 0.1)',
-      border: '1px solid rgba(124, 58, 237, 0.2)',
-      padding: '1rem',
-      borderRadius: '12px',
-      fontSize: '0.9rem',
-      color: '#c4b5fd',
-      transition: 'all 0.3s ease'
     },
     contactGrid: {
       display: 'grid',
@@ -1140,55 +1033,9 @@ const Portfolio = () => {
       animation: 'fadeInUp 0.6s ease forwards',
       opacity: 0,
       transform: 'translateY(20px)'
-    },
-      modal: {
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      background: 'rgba(0, 0, 0, 0.9)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      zIndex: 1000,
-      padding: '2rem'
-    },
-    modalContent: {
-      background: 'rgba(255, 255, 255, 0.1)',
-      backdropFilter: 'blur(20px)',
-      border: '1px solid rgba(255, 255, 255, 0.2)',
-      borderRadius: '20px',
-      padding: '2rem',
-      maxWidth: '90vw',
-      maxHeight: '90vh',
-      overflow: 'auto'
-    },
-    imageGrid: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-      gap: '1rem',
-      marginTop: '1rem'
-    },
-    modalImage: {
-      width: '100%',
-      height: '150px',
-      objectFit: 'cover',
-      borderRadius: '10px',
-      cursor: 'pointer',
-      transition: 'transform 0.3s ease'
-    },
-    closeButton: {
-      position: 'absolute',
-      top: '1rem',
-      right: '1rem',
-      background: 'none',
-      border: 'none',
-      color: 'white',
-      fontSize: '2rem',
-      cursor: 'pointer'
     }
   };
+
   if (isLoading) {
     return (
       <div style={styles.loading}>
@@ -1212,7 +1059,7 @@ const Portfolio = () => {
         <div style={styles.navContainer}>
           <div style={styles.logo}>Reggie Segovia</div>
           <div style={styles.navLinks}>
-            {['home', 'about', 'skills', 'research', 'projects', 'experience', 'education', 'contact'].map((item) => (
+            {['home', 'about', 'skills', 'research', 'projects', 'research-experience', 'work-experience', 'contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
@@ -1240,12 +1087,10 @@ const Portfolio = () => {
           >
             ☰
           </button>
-          <div style={styles.controlButtons}>
-          </div>
         </div>
         
         <div style={styles.mobileMenu}>
-          {['home', 'about', 'skills', 'research', 'projects', 'experience', 'education', 'contact'].map((item) => (
+          {['home', 'about', 'skills', 'research', 'projects', 'research-experience', 'work-experience', 'contact'].map((item) => (
             <button
               key={item}
               onClick={() => scrollToSection(item)}
@@ -1272,7 +1117,7 @@ const Portfolio = () => {
             <Suspense fallback={null}>
               {showParticles && <AnimatedBackground />}
               <Hero3DText text="Reggie Segovia" position={[0, 1, 0]} size={2.2} />
-              <Hero3DText text="HCI Researcher & Computational Scientist" position={[0, 0, 0]} size={0.9} />
+              <Hero3DText text="HCI Researcher & Developer" position={[0, 0, 0]} size={0.9} />
             </Suspense>
             <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
           </Canvas>
@@ -1280,9 +1125,9 @@ const Portfolio = () => {
         
         <div style={styles.heroContent}>
           <p style={styles.heroText}>
-            Researcher specializing in Human-Computer Interaction, AI-powered systems, and high-performance computing. 
-            Currently developing cutting-edge research in projected reality interfaces, AI/ML integration, VR experiences, and CUDA optimization 
-            for both academic research and industry applications.
+            HCI Researcher specializing in projected reality interfaces, embodied interaction, and immersive technologies. 
+            Developing cutting-edge research in tangible interfaces, conversational AI in VR, and spatial computing 
+            for medical, environmental, and creative applications.
           </p>
           
           <div style={styles.socialLinks}>
@@ -1350,7 +1195,7 @@ const Portfolio = () => {
               e.target.style.boxShadow = '0 15px 35px rgba(124, 58, 237, 0.4)';
             }}
           >
-            Explore Research & Projects ↓
+            Explore Research ↓
           </button>
         </div>
       </section>
@@ -1362,27 +1207,27 @@ const Portfolio = () => {
           <div style={styles.aboutGrid}>
             <div>
               <p style={styles.aboutText}>
-                I'm a Computer Science student at the University of Florida with a passion for pushing the boundaries of 
-                human-computer interaction and computational efficiency. My research spans from AI-powered projected reality 
-                systems to high-performance CUDA optimization, with publications submitted to top-tier venues.
+                I'm a Computer Science student at the University of Florida passionate about human-computer interaction 
+                and immersive technologies. My research focuses on creating natural, embodied interfaces that enhance 
+                how humans interact with digital information through projected reality, VR/AR, and tangible interaction.
               </p>
               <p style={styles.aboutText}>
-                Currently working on multiple cutting-edge projects including a revolutionary projected 
-                reality interface, flood risk digital twins in VR/AR, and conversational AI agents in virtual environments. 
-                My work focuses on creating technology that enhances human creativity and understanding.
+                Currently working on multiple HCI research projects including an AI-powered projected reality system 
+                (submitted to IEEE AIxVR 2026), conversational AI agents in VR, AR medical applications, and 
+                environmental digital twins. My work bridges computer vision, spatial computing, and interaction design.
               </p>
               <p style={styles.aboutText}>
-                My technical expertise combines deep learning, computer graphics, parallel computing, and spatial interaction 
-                design. I believe in creating technology that not only performs efficiently but also remains accessible and 
-                natural to use.
+                I believe technology should feel natural and enhance human capabilities. Whether it's grasping memories 
+                through hand gestures, training therapists in VR, or visualizing climate risks in immersive environments, 
+                I'm driven to make computing more human-centered.
               </p>
               
               <div style={styles.statsGrid}>
                 {[
                   { label: "Overall GPA", value: "3.81" },
-                  { label: "Research Projects", value: "6+" },
+                  { label: "Research Projects", value: "7" },
                   { label: "Publications", value: "1 Submitted" },
-                  { label: "Performance Gains", value: "4x CUDA" }
+                  { label: "Research Focus", value: "HCI" }
                 ].map((stat, index) => (
                   <div 
                     key={index} 
@@ -1420,7 +1265,7 @@ const Portfolio = () => {
 
       <section id="skills" style={styles.section}>
         <div>
-          <h2 style={{...styles.sectionTitle, marginBottom: '0 auto'}}>Technical Skills</h2>
+          <h2 style={{...styles.sectionTitle, marginBottom: '2rem'}}>Technical Skills</h2>
           <div style={styles.skillsContainer}>
             <Canvas camera={{ position: [0, 0, 8], fov: 60 }}>
               <ambientLight intensity={0.4} />
@@ -1522,55 +1367,17 @@ const Portfolio = () => {
                   e.currentTarget.style.boxShadow = 'none';
                 }}
               >
-                {project.image ? (
-                  <img src={project.image} alt={project.title} style={styles.projectImage} />
-                ) : (
-                  <div style={{
-                    ...styles.projectHeader,
-                    background: index === 0 ? 'linear-gradient(135deg, #7c3aed, #ec4899)' :
-                               index === 1 ? 'linear-gradient(135deg, #dc2626, #f59e0b)' :
-                               index === 2 ? 'linear-gradient(135deg, #059669, #06b6d4)' :
-                               index === 3 ? 'linear-gradient(135deg, #3b82f6, #8b5cf6)' :
-                               index === 4 ? 'linear-gradient(135deg, #ea580c, #f59e0b)' :
-                               'linear-gradient(135deg, #065f46, #047857)'
-                  }} />
-                )}
+                <div style={{
+                  ...styles.projectHeader,
+                  background: index === 0 ? 'linear-gradient(135deg, #7c3aed, #ec4899)' :
+                             index === 1 ? 'linear-gradient(135deg, #ec4899, #f59e0b)' :
+                             index === 2 ? 'linear-gradient(135deg, #3b82f6, #8b5cf6)' :
+                             index === 3 ? 'linear-gradient(135deg, #db2777, #f472b6)' :
+                             index === 4 ? 'linear-gradient(135deg, #dc2626, #f59e0b)' :
+                             index === 5 ? 'linear-gradient(135deg, #ea580c, #f59e0b)' :
+                             'linear-gradient(135deg, #059669, #06b6d4)'
+                }} />
                 
-                <button
-                  onClick={() => {
-                    setSelectedProject(project);
-                    setShowImageModal(true);
-                  }}
-                  style={{
-                    position: 'absolute',
-                    bottom: '1rem',
-                    right: '1rem',
-                    background: 'rgba(255, 255, 255, 0.2)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255, 255, 255, 0.3)',
-                    borderRadius: '50%',
-                    width: '45px',
-                    height: '45px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    fontSize: '1.2rem',
-                    color: 'white',
-                    zIndex: 3
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = 'rgba(255, 255, 255, 0.3)';
-                    e.target.style.transform = 'scale(1.1)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.background = 'rgba(255, 255, 255, 0.2)';
-                    e.target.style.transform = 'scale(1)';
-                  }}
-                >
-                  🖼️
-                </button>
                 <div style={{position: 'absolute', top: '1.5rem', right: '1.5rem', zIndex: 2}}>
                   <div style={styles.projectType}>{project.type}</div>
                 </div>
@@ -1580,11 +1387,8 @@ const Portfolio = () => {
                     <div style={{
                       ...styles.projectStatus,
                       background: project.status === 'Under Review' ? 'rgba(251, 146, 60, 0.2)' :
-                                 project.status === 'Completed' ? 'rgba(34, 197, 94, 0.2)' :
                                  'rgba(59, 130, 246, 0.2)',
-                      color: project.status === 'Under Review' ? '#fed7aa' :
-                             project.status === 'Completed' ? '#86efac' :
-                             '#93c5fd'
+                      color: project.status === 'Under Review' ? '#fed7aa' : '#93c5fd'
                     }}>
                       {project.status}
                     </div>
@@ -1597,7 +1401,7 @@ const Portfolio = () => {
                   
                   {project.collaboration && (
                     <p style={styles.collaboration}>
-                      👥 Collaboration: {project.collaboration}
+                      👥 {project.collaboration}
                     </p>
                   )}
                   
@@ -1609,27 +1413,31 @@ const Portfolio = () => {
                     ))}
                   </div>
                   
-                  <div style={styles.projectLinks}>
-                    {Object.entries(project.links).map(([type, url], linkIndex) => (
-                      <a
-                        key={linkIndex}
-                        href={url}
-                        style={styles.projectLink}
-                        onMouseEnter={(e) => {
-                          e.target.style.background = 'linear-gradient(45deg, #6d28d9, #db2777)';
-                          e.target.style.transform = 'scale(1.05) translateY(-2px)';
-                          e.target.style.boxShadow = '0 10px 25px rgba(124, 58, 237, 0.4)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.target.style.background = 'linear-gradient(45deg, #7c3aed, #ec4899)';
-                          e.target.style.transform = 'scale(1) translateY(0)';
-                          e.target.style.boxShadow = 'none';
-                        }}
-                      >
-                        {type.charAt(0).toUpperCase() + type.slice(1)}
-                      </a>
-                    ))}
-                  </div>
+                  {Object.keys(project.links).length > 0 && (
+                    <div style={styles.projectLinks}>
+                      {Object.entries(project.links).map(([type, url], linkIndex) => (
+                        <a
+                          key={linkIndex}
+                          href={url}
+                          style={styles.projectLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onMouseEnter={(e) => {
+                            e.target.style.background = 'linear-gradient(45deg, #6d28d9, #db2777)';
+                            e.target.style.transform = 'scale(1.05) translateY(-2px)';
+                            e.target.style.boxShadow = '0 10px 25px rgba(124, 58, 237, 0.4)';
+                          }}
+                          onMouseLeave={(e) => {
+                            e.target.style.background = 'linear-gradient(45deg, #7c3aed, #ec4899)';
+                            e.target.style.transform = 'scale(1) translateY(0)';
+                            e.target.style.boxShadow = 'none';
+                          }}
+                        >
+                          {type.charAt(0).toUpperCase() + type.slice(1)}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -1657,55 +1465,17 @@ const Portfolio = () => {
                   e.currentTarget.style.boxShadow = 'none';
                 }}
               >
-                {project.image ? (
-                  <img src={project.image} alt={project.title} style={styles.projectImage} />
-                ) : (
-                  <div style={{
-                    ...styles.projectHeader,
-                    background: index === 0 ? 'linear-gradient(135deg, #059669, #06b6d4)' :
-                               index === 1 ? 'linear-gradient(135deg, #7c3aed, #ec4899)' :
-                               index === 2 ? 'linear-gradient(135deg, #dc2626, #f59e0b)' :
-                               index === 3 ? 'linear-gradient(135deg, #f59e0b, #eab308)' :
-                               index === 4 ? 'linear-gradient(135deg, #8b5cf6, #a855f7)' :
-                               'linear-gradient(135deg, #06b6d4, #0891b2)'
-                  }} />
-                )}
+                <div style={{
+                  ...styles.projectHeader,
+                  background: index === 0 ? 'linear-gradient(135deg, #dc2626, #ea580c)' :
+                             index === 1 ? 'linear-gradient(135deg, #059669, #06b6d4)' :
+                             index === 2 ? 'linear-gradient(135deg, #7c3aed, #ec4899)' :
+                             index === 3 ? 'linear-gradient(135deg, #06b6d4, #3b82f6)' :
+                             index === 4 ? 'linear-gradient(135deg, #f59e0b, #eab308)' :
+                             index === 5 ? 'linear-gradient(135deg, #8b5cf6, #a855f7)' :
+                             'linear-gradient(135deg, #0891b2, #06b6d4)'
+                }} />
                 
-                <button
-                  onClick={() => {
-                    setSelectedProject(project);
-                    setShowImageModal(true);
-                  }}
-                  style={{
-                    position: 'absolute',
-                    bottom: '1rem',
-                    right: '1rem',
-                    background: 'rgba(255, 255, 255, 0.2)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255, 255, 255, 0.3)',
-                    borderRadius: '50%',
-                    width: '45px',
-                    height: '45px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    fontSize: '1.2rem',
-                    color: 'white',
-                    zIndex: 3
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = 'rgba(255, 255, 255, 0.3)';
-                    e.target.style.transform = 'scale(1.1)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.background = 'rgba(255, 255, 255, 0.2)';
-                    e.target.style.transform = 'scale(1)';
-                  }}
-                >
-                  🖼️
-                </button>
                 <div style={{position: 'absolute', top: '1.5rem', right: '1.5rem', zIndex: 2}}>
                   <div style={styles.projectType}>{project.type}</div>
                 </div>
@@ -1728,6 +1498,8 @@ const Portfolio = () => {
                         key={linkIndex}
                         href={url}
                         style={styles.projectLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         onMouseEnter={(e) => {
                           e.target.style.background = 'linear-gradient(45deg, #6d28d9, #db2777)';
                           e.target.style.transform = 'scale(1.05) translateY(-2px)';
@@ -1750,9 +1522,69 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <section id="experience" style={styles.section}>
+      {/* SEPARATED SECTION: Research Experience */}
+      <section id="research-experience" style={styles.section}>
         <div>
-          <h2 style={styles.sectionTitle}>Work Experience</h2>
+          <h2 style={styles.sectionTitle}>Research Experience</h2>
+          
+          <div style={styles.experienceGrid}>
+            {researchExperience.map((job, index) => (
+              <div
+                key={index}
+                style={styles.experienceCard}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
+                  e.currentTarget.style.transform = 'translateY(-5px)';
+                  e.currentTarget.style.boxShadow = '0 20px 40px rgba(124, 58, 237, 0.2)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
+              >
+                <div style={styles.experienceHeader}>
+                  <div>
+                    <h3 style={styles.jobTitle}>{job.title}</h3>
+                    <p style={styles.company}>{job.company}</p>
+                    <p style={styles.location}>{job.location}</p>
+                  </div>
+                  <span style={styles.periodBadge}>{job.period}</span>
+                </div>
+                
+                <p style={styles.jobDescription}>{job.description}</p>
+                
+                <div style={styles.achievements}>
+                  <h4 style={{fontSize: '1.1rem', fontWeight: '600', color: 'white', marginBottom: '1rem'}}>
+                    Key Contributions
+                  </h4>
+                  {job.achievements.map((achievement, achievementIndex) => (
+                    <div 
+                      key={achievementIndex} 
+                      style={styles.achievementItem}
+                    >
+                      • {achievement}
+                    </div>
+                  ))}
+                </div>
+                
+                <div style={styles.techTags}>
+                  {job.tech.map((tech, techIndex) => (
+                    <span key={techIndex} style={styles.techTag}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SEPARATED SECTION: Work/Teaching Experience */}
+      <section id="work-experience" style={styles.section}>
+        <div>
+          <h2 style={styles.sectionTitle}>Work & Teaching Experience</h2>
           
           <div style={styles.experienceGrid}>
             {workExperience.map((job, index) => (
@@ -1783,20 +1615,12 @@ const Portfolio = () => {
                 
                 <div style={styles.achievements}>
                   <h4 style={{fontSize: '1.1rem', fontWeight: '600', color: 'white', marginBottom: '1rem'}}>
-                    Key Achievements
+                    Key Contributions
                   </h4>
                   {job.achievements.map((achievement, achievementIndex) => (
                     <div 
                       key={achievementIndex} 
-                      style={{
-                        ...styles.achievementItem,
-                        '::before': {
-                          content: '"•"',
-                          position: 'absolute',
-                          left: 0,
-                          color: '#a78bfa'
-                        }
-                      }}
+                      style={styles.achievementItem}
                     >
                       • {achievement}
                     </div>
@@ -1816,99 +1640,12 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <section id="education" style={styles.section}>
-        <div>
-          <h2 style={styles.sectionTitle}>Education</h2>
-          
-          <div style={styles.educationGrid}>
-            {[
-              {
-                degree: "Bachelor of Science in Computer Science",
-                school: "University of Florida",
-                period: "Jan 2024 - Dec 2025",
-                focus: "Research Focus: HCI, Computer Graphics, High-Performance Computing",
-                gpa: "3.81/4.0",
-                honors: "Bright Futures Florida Academic Scholars Award, Dean's List Spring 2025",
-                courses: [
-                  "Data Structures & Algorithms",
-                  "Algorithm Abstraction and Design", 
-                  "Artificial Intelligence",
-                  "Virtual Reality",
-                  "Computational Linear Algebra",
-                  "Operating Systems",
-                  "Programming Language Concepts",
-                  "Computer Organization",
-                  "Software Engineering",
-                  "Database Systems",
-                  "Computational Media",
-                  "Data Science",
-                  "Cryptology",
-                  "Security in Computing",
-                  "Penetration Testing",
-                  "Engineering Research",
-                  "Statistics for Engineers",
-                  "Physics I & II + Laboratory",
-                  "Calculus I, II, III",
-                  "Discrete Structures"
-                ]
-              }
-            ].map((edu, index) => (
-              <div
-                key={index}
-                style={styles.educationCard}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-                  e.currentTarget.style.transform = 'translateY(-5px)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                }}
-              >
-                <div style={styles.experienceHeader}>
-                  <div>
-                    <h3 style={styles.degreeTitle}>{edu.degree}</h3>
-                    <p style={styles.institution}>{edu.school}</p>
-                    <p style={styles.educationDetails}>{edu.focus}</p>
-                    <p style={styles.educationDetails}>GPA: {edu.gpa}</p>
-                    <p style={styles.educationDetails}>Honors: {edu.honors}</p>
-                  </div>
-                  <span style={styles.periodBadge}>{edu.period}</span>
-                </div>
-                
-                <div>
-                  <h4 style={styles.courseworkTitle}>Relevant Coursework</h4>
-                  <div style={styles.courseworkGrid}>
-                    {edu.courses.map((course, courseIndex) => (
-                      <div 
-                        key={courseIndex} 
-                        style={styles.courseItem}
-                        onMouseEnter={(e) => {
-                          e.target.style.background = 'rgba(124, 58, 237, 0.2)';
-                          e.target.style.transform = 'scale(1.05)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.target.style.background = 'rgba(124, 58, 237, 0.1)';
-                          e.target.style.transform = 'scale(1)';
-                        }}
-                      >
-                        {course}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="contact" style={styles.section}>
         <div>
           <h2 style={styles.sectionTitle}>Let's Collaborate</h2>
           <p style={{...styles.heroText, textAlign: 'center', marginBottom: '3rem'}}>
-            Ready to push the boundaries of human-computer interaction? Let's discuss research opportunities, 
-            collaborations, work opportunities or exciting projects in AI, VR, and computational science.
+            Interested in HCI research collaborations, immersive technology projects, or discussing innovative 
+            interaction paradigms? Let's connect!
           </p>
           
           <div style={styles.contactGrid}>
@@ -1922,7 +1659,7 @@ const Portfolio = () => {
               { 
                 icon: "🎓", 
                 title: "Research", 
-                value: "HCI • AI • VR • Graphics", 
+                value: "HCI • VR/AR • Embodied Interaction", 
                 href: "#research" 
               },
               { 
@@ -1946,7 +1683,7 @@ const Portfolio = () => {
               { 
                 icon: "🎯", 
                 title: "Focus", 
-                value: "Research & Development", 
+                value: "Human-Computer Interaction", 
                 href: "#research" 
               }
             ].map((contact, index) => {
@@ -2042,11 +1779,6 @@ const Portfolio = () => {
           100% { transform: rotate(360deg); }
         }
         
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-        }
-        
         /* Responsive design */
         @media (max-width: 1024px) {
           .nav-links {
@@ -2093,10 +1825,6 @@ const Portfolio = () => {
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
           }
           
-          .coursework-grid {
-            grid-template-columns: 1fr;
-          }
-          
           .experience-header {
             flex-direction: column;
             align-items: flex-start;
@@ -2115,11 +1843,6 @@ const Portfolio = () => {
           .social-links {
             flex-direction: column;
             align-items: center;
-          }
-          
-          .control-buttons {
-            flex-direction: column;
-            gap: 0.5rem;
           }
           
           .skill-tags {
@@ -2167,34 +1890,9 @@ const Portfolio = () => {
           outline: 2px solid #a78bfa;
           outline-offset: 2px;
         }
-      `}
-      {showImageModal && selectedProject && (
-        <div style={styles.modal} onClick={() => setShowImageModal(false)}>
-          <div style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            <button 
-              style={styles.closeButton}
-              onClick={() => setShowImageModal(false)}
-            >
-              ×
-            </button>
-            <h3 style={{color: 'white', marginBottom: '1rem'}}>{selectedProject.title}</h3>
-            <div style={styles.imageGrid}>
-              {selectedProject.images?.map((imagePath, index) => (
-                <img
-                  key={index}
-                  src={imagePath}
-                  alt={`${selectedProject.title} ${index + 1}`}
-                  style={styles.modalImage}
-                  onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
-                  onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-      </style>
+      `}</style>
     </div>
   );
 };
+
 export default Portfolio;
