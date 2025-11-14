@@ -779,7 +779,7 @@ const Portfolio = () => {
       objectPosition: '50% 30%'
     },
     skillsContainer: {
-      height: '600px',
+      height: '0px',
       position: 'relative',
       maxWidth: '1200px',
       margin: '0 auto'
