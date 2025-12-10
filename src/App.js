@@ -4,6 +4,7 @@ import { Text, Float, MeshDistortMaterial, Sphere, OrbitControls, Stars } from '
 import profilePic from './reggie-pic.png';
 import resumePDF from './segovia_resume.pdf';
 import cvPDF from './segovia_cv.pdf';
+import { GraduationCap, Award, BookOpen, Star } from 'lucide-react';
 
 const AnimatedBackground = () => {
   const meshRef = useRef();
@@ -154,17 +155,11 @@ const SkillOrb = ({ position, color, label, description, onClick }) => {
 
 const Portfolio = () => {
   const [currentSection, setCurrentSection] = useState('home');
-  const [isLoading, setIsLoading] = useState(true);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [showParticles, setShowParticles] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [showImageModal, setShowImageModal] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2500);
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -264,6 +259,356 @@ const Portfolio = () => {
       images: []
     }
   ];
+
+  const EducationSection = () => {
+    const courses = {
+      uf: [
+        "COP 3503C Programming Fundamentals 2",
+        "IDS 2935 Can We Design \"Better\" Humans?",
+        "MAS 3114 Computational Linear Algebra",
+        "PHY 2054 Physics 2 & Lab",
+        "STA 3032 Engineering Statistics",
+        "CDA 3101 Intro to Computer Organization",
+        "CIS 4930 Intro to Virtual Reality",
+        "COP 3530 Data Structures & Algorithms",
+        "MUL 2010 Experiencing Music",
+        "CEN 3031 Intro to Software Engineering",
+        "CIS 4204 Penetration Testing",
+        "CIS 4301 Information & Database Systems I",
+        "CIS 4930 Enterprise Software Engineering",
+        "CAP 3027 Intro to Computational Media",
+        "CAP 4770 Intro to Data Science",
+        "COP 4020 Programming Language Concepts",
+        "COP 4600 Operating Systems",
+        "CIS 4362 Intro to Cryptology",
+        "COP 4533 Algorithm Abstraction & Design",
+        "EGN 4912 Engineering Research",
+        "CAP 4621 Artificial Intelligence",
+        "CIS 4715 CS Teaching & Learning",
+        "CIS 4914 Senior Project"
+      ],
+      ucf: [
+        "COP 3223C Intro to Programming with C",
+        "COP 3502C Computer Science I",
+        "CDA 3103C Computer Logic & Organization",
+        "COT 3100C Intro to Discrete Structures",
+        "COP 3330 Object Oriented Programming",
+        "CIS 3360 Security in Computing",
+        "STA 2023 Statistical Methods I",
+        "MAC 2311C Calculus I",
+        "MAC 2312 Calculus II",
+        "MAC 2313 Calculus III",
+        "PHY 2053 College Physics I & Lab",
+        "BSC 2010C Biology I",
+        "ENC 3241 Writing for Technical Professionals"
+      ]
+    };
+
+    const timelineEvents = [
+      { date: "May 2022", title: "Started at UCF", color: "#3b82f6" },
+      { date: "Dec 2023", title: "Earned Associate Degree", color: "#a855f7" },
+      { date: "Jan 2024", title: "Transferred to UF", color: "#3b82f6" },
+      { date: "Dec 2025", title: "Expected Bachelor's Degree", color: "#facc15", pulse: true }
+    ];
+
+    const styles = {
+      container: {
+        padding: '2rem',
+        color: 'white',
+        maxWidth: '1200px',
+        margin: '0 auto'
+      },
+      header: {
+        textAlign: 'center',
+        marginBottom: '3rem'
+      },
+      headerTitle: {
+        fontSize: '3rem',
+        fontWeight: 'bold',
+        background: 'linear-gradient(to right, #60a5fa, #c084fc)',
+        WebkitBackgroundClip: 'text',
+        backgroundClip: 'text',
+        color: 'transparent',
+        margin: 0
+      },
+      card: {
+        background: 'rgba(30, 41, 59, 0.5)',
+        backdropFilter: 'blur(10px)',
+        borderRadius: '1rem',
+        padding: '2rem',
+        border: '1px solid rgba(51, 65, 85, 1)',
+        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+        marginBottom: '2rem',
+        transition: 'all 0.3s ease'
+      },
+      schoolHeader: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'flex-start',
+        flexWrap: 'wrap',
+        gap: '1rem',
+        marginBottom: '1.5rem'
+      },
+      schoolName: {
+        fontSize: '1.875rem',
+        fontWeight: 'bold',
+        color: '#60a5fa',
+        marginBottom: '0.5rem'
+      },
+      subText: {
+        fontSize: '1.25rem',
+        color: '#cbd5e1',
+        marginBottom: '0.25rem'
+      },
+      metaText: {
+        color: '#94a3b8'
+      },
+      gpaBox: {
+        textAlign: 'right'
+      },
+      gpaValue: {
+        fontSize: '1.5rem',
+        fontWeight: 'bold',
+        color: '#facc15',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '0.5rem',
+        justifyContent: 'flex-end'
+      },
+      honorsBox: {
+        background: 'rgba(15, 23, 42, 0.5)',
+        padding: '1rem',
+        borderRadius: '0.5rem',
+        border: '1px solid rgba(71, 85, 105, 1)',
+        marginBottom: '1.5rem'
+      },
+      courseGrid: {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        gap: '0.75rem',
+        marginTop: '1rem'
+      },
+      courseItem: {
+        display: 'flex',
+        alignItems: 'center',
+        color: '#94a3b8',
+        fontSize: '0.95rem'
+      },
+      sectionTitle: {
+        fontSize: '1.125rem',
+        fontWeight: '600',
+        color: '#cbd5e1',
+        marginBottom: '0.75rem',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '0.5rem'
+      },
+      // Timeline specific styles
+      timelineContainer: {
+        marginTop: '3rem',
+        padding: '1.5rem',
+        background: 'rgba(30, 41, 59, 0.3)',
+        borderRadius: '1rem',
+        border: '1px solid rgba(51, 65, 85, 1)'
+      },
+      timelineTitle: {
+        fontSize: '1.5rem',
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginBottom: '1.5rem',
+        color: '#cbd5e1'
+      },
+      timelineWrapper: {
+        position: 'relative',
+        maxWidth: '800px',
+        margin: '0 auto'
+      },
+      timelineLine: {
+        position: 'absolute',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        height: '100%',
+        width: '4px',
+        background: 'linear-gradient(to bottom, #3b82f6, #a855f7)',
+        borderRadius: '2px'
+      },
+      timelineItem: {
+        display: 'flex',
+        alignItems: 'center',
+        marginBottom: '2rem',
+        position: 'relative'
+      },
+      timelineDate: {
+        width: '50%',
+        paddingRight: '2rem',
+        textAlign: 'right',
+        color: '#94a3b8'
+      },
+      timelineContent: {
+        width: '50%',
+        paddingLeft: '2rem',
+        color: '#cbd5e1',
+        fontWeight: '600'
+      },
+      timelineDot: (color, pulse) => ({
+        width: '1rem',
+        height: '1rem',
+        backgroundColor: color,
+        borderRadius: '50%',
+        border: '4px solid #0f172a',
+        position: 'absolute',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        zIndex: 10,
+        boxShadow: pulse ? `0 0 0 4px ${color}40` : 'none',
+        animation: pulse ? 'pulse 2s infinite' : 'none'
+      })
+    };
+
+    return (
+      <div style={styles.container}>
+        <style>
+          {`
+            @keyframes pulse {
+              0% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7); }
+              70% { box-shadow: 0 0 0 10px rgba(250, 204, 21, 0); }
+              100% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0); }
+            }
+          `}
+        </style>
+
+        {/* Section Header */}
+        <div style={styles.header}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+            <GraduationCap size={40} color="#60a5fa" />
+            <h1 style={styles.headerTitle}>Education</h1>
+          </div>
+          <p style={{ color: '#94a3b8', fontSize: '1.125rem' }}>Academic Journey & Achievements</p>
+        </div>
+
+        {/* University of Florida */}
+        <div 
+          style={styles.card}
+          onMouseEnter={(e) => e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)'}
+          onMouseLeave={(e) => e.currentTarget.style.borderColor = 'rgba(51, 65, 85, 1)'}
+        >
+          <div style={styles.schoolHeader}>
+            <div>
+              <h2 style={styles.schoolName}>University of Florida</h2>
+              <p style={styles.subText}>Bachelor of Science in Computer Science</p>
+              <p style={styles.metaText}>Gainesville, FL • Jan 2024 – Dec 2025 (Expected)</p>
+            </div>
+            <div style={styles.gpaBox}>
+              <div style={styles.gpaValue}>
+                <Star size={20} fill="#facc15" color="#facc15" />
+                <span>3.81 GPA</span>
+              </div>
+              <p style={{ fontSize: '0.875rem', color: '#94a3b8' }}>Summa Cum Laude</p>
+            </div>
+          </div>
+
+          {/* Honors */}
+          <div style={styles.honorsBox}>
+            <div style={styles.sectionTitle}>
+              <Award size={20} color="#c084fc" />
+              <span style={{ color: '#c084fc' }}>Honors & Awards</span>
+            </div>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, color: '#cbd5e1' }}>
+              {['Summa Cum Laude', 'Bright Futures Florida Academic Scholars Award (100% Tuition)', "Dean's List Spring 2025"].map((honor, i) => (
+                <li key={i} style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
+                  <span style={{ color: '#c084fc', marginRight: '0.5rem' }}>•</span>
+                  {honor}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Research Focus */}
+          <div style={{ marginBottom: '1.5rem' }}>
+            <h3 style={styles.sectionTitle}>Research Focus</h3>
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+              {['Human-Computer Interaction', 'Computer Graphics', 'Spatial Computing'].map((focus, i) => (
+                <span key={i} style={{ 
+                  padding: '0.25rem 0.75rem', 
+                  background: 'rgba(59, 130, 246, 0.2)', 
+                  color: '#93c5fd', 
+                  borderRadius: '9999px', 
+                  fontSize: '0.875rem',
+                  border: '1px solid rgba(59, 130, 246, 0.3)'
+                }}>
+                  {focus}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Courses */}
+          <div>
+            <div style={styles.sectionTitle}>
+              <BookOpen size={20} color="#60a5fa" />
+              <span>Relevant Coursework</span>
+            </div>
+            <div style={styles.courseGrid}>
+              {courses.uf.map((course, idx) => (
+                <div key={idx} style={styles.courseItem}>
+                  <span style={{ color: '#60a5fa', marginRight: '0.5rem' }}>→</span>
+                  <span>{course}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* University of Central Florida */}
+        <div 
+          style={styles.card}
+          onMouseEnter={(e) => e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)'}
+          onMouseLeave={(e) => e.currentTarget.style.borderColor = 'rgba(51, 65, 85, 1)'}
+        >
+          <div style={styles.schoolHeader}>
+            <div>
+              <h2 style={styles.schoolName}>University of Central Florida</h2>
+              <p style={styles.subText}>Associate of Arts</p>
+              <p style={styles.metaText}>Orlando, FL • May 2022 – Dec 2023</p>
+            </div>
+          </div>
+
+          {/* Courses */}
+          <div>
+            <div style={styles.sectionTitle}>
+              <BookOpen size={20} color="#60a5fa" />
+              <span>Foundational Coursework</span>
+            </div>
+            <div style={styles.courseGrid}>
+              {courses.ucf.map((course, idx) => (
+                <div key={idx} style={styles.courseItem}>
+                  <span style={{ color: '#60a5fa', marginRight: '0.5rem' }}>→</span>
+                  <span>{course}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Academic Timeline */}
+        <div style={styles.timelineContainer}>
+          <h3 style={styles.timelineTitle}>Academic Timeline</h3>
+          <div style={styles.timelineWrapper}>
+            <div style={styles.timelineLine}></div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+              {timelineEvents.map((event, index) => (
+                <div key={index} style={styles.timelineItem}>
+                  <div style={styles.timelineDate}>{event.date}</div>
+                  <div style={styles.timelineDot(event.color, event.pulse)}></div>
+                  <div style={styles.timelineContent}>{event.title}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   const personalProjects = [
     {
@@ -975,30 +1320,6 @@ const Portfolio = () => {
     contactValue: {
       color: '#c4b5fd'
     },
-    loading: {
-      position: 'fixed',
-      inset: 0,
-      background: 'linear-gradient(135deg, #0a0a0a, #1a1a2e, #533483)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      flexDirection: 'column',
-      zIndex: 9999
-    },
-    spinner: {
-      width: '80px',
-      height: '80px',
-      border: '4px solid rgba(124, 58, 237, 0.3)',
-      borderTop: '4px solid #7c3aed',
-      borderRadius: '50%',
-      animation: 'spin 1s linear infinite',
-      marginBottom: '1rem'
-    },
-    loadingText: {
-      color: 'white',
-      fontSize: '1.25rem',
-      fontWeight: '300'
-    },
     skillCategory: {
       background: 'rgba(255, 255, 255, 0.05)',
       backdropFilter: 'blur(20px)',
@@ -1036,21 +1357,6 @@ const Portfolio = () => {
     }
   };
 
-  if (isLoading) {
-    return (
-      <div style={styles.loading}>
-        <div style={styles.spinner}></div>
-        <p style={styles.loadingText}>Initializing Portfolio...</p>
-        <style>{`
-          @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-          }
-        `}</style>
-      </div>
-    );
-  }
-
   return (
     <div style={styles.container}>
       <div style={styles.cursor} />
@@ -1059,7 +1365,7 @@ const Portfolio = () => {
         <div style={styles.navContainer}>
           <div style={styles.logo}>Reggie Segovia</div>
           <div style={styles.navLinks}>
-            {['home', 'about', 'skills', 'research', 'projects', 'research-experience', 'work-experience', 'contact'].map((item) => (
+            {['home', 'about', 'education', 'skills', 'research', 'projects', 'research-experience', 'work-experience', 'contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
@@ -1261,6 +1567,10 @@ const Portfolio = () => {
             </div>
           </div>
         </div>
+      </section>
+
+      <section id="education" style={styles.section}>
+        <EducationSection />
       </section>
 
       <section id="skills" style={styles.section}>
