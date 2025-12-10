@@ -1431,8 +1431,8 @@ const Portfolio = () => {
         
         <div style={styles.heroContent}>
           <p style={styles.heroText}>
-            HCI Researcher specializing in projected reality interfaces, embodied interaction, and immersive technologies. 
-            Developing cutting-edge research in tangible interfaces, conversational AI in VR, and spatial computing 
+            HCI Researcher specializing in projected reality interfaces, embodied interaction, computer graphics, and immersive technologies. 
+            Developing cutting-edge research in tangible interfaces, computer graphics, conversational AI in VR, and spatial computing 
             for medical, environmental, and creative applications.
           </p>
           
