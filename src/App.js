@@ -210,7 +210,7 @@ const Portfolio = () => {
       images: []
     },
     {
-      title: "VirtualHuman 2.0: Conversational AI in VR",
+      title: "VirtualHuman 2.0: Conversational Agentic AI in VR",
       type: "HCI & AI",
       description: "Developed immersive VR conversational AI with full-stack speech pipeline (Whisper STT, Gemini LLM, ElevenLabs TTS) and NeuroSync lip-sync. Leading integration of agentic AI framework for autonomous reasoning capabilities.",
       tech: ["VR", "Conversational AI", "HCI", "Whisper", "Gemini", "ElevenLabs", "Unreal Engine", "Agentic AI"],
@@ -801,7 +801,7 @@ const Portfolio = () => {
       company: "University of Florida",
       period: "Apr 2025 - Present",
       location: "Gainesville, FL",
-      description: "Leading development of multiple HCI research projects focused on projected reality, conversational AI, and tangible interfaces under Dr. Alexandre Gomes de Siqueira.",
+      description: "Leading development of multiple HCI research projects focused on projected reality, conversational Agentic AI, and tangible interfaces under Dr. Alexandre Gomes de Siqueira.",
       achievements: [
         "Lead developer of AI-powered projected reality system (Graspable Memories) - paper submitted to IEEE AIxVR 2026",
         "Extending platform into fully volumetric interaction model for senior thesis (Beyond the Grasp)",
@@ -1432,7 +1432,7 @@ const Portfolio = () => {
         <div style={styles.heroContent}>
           <p style={styles.heroText}>
             HCI Researcher specializing in projected reality interfaces, embodied interaction, computer graphics, and immersive technologies. 
-            Developing cutting-edge research in tangible interfaces, computer graphics, conversational AI in VR, and spatial computing 
+            Developing cutting-edge research in tangible interfaces, computer graphics, conversational Agentic AI in VR, and spatial computing 
             for medical, environmental, and creative applications.
           </p>
           
@@ -1519,7 +1519,7 @@ const Portfolio = () => {
               </p>
               <p style={styles.aboutText}>
                 Currently working on multiple HCI research projects including an AI-powered projected reality system 
-                (submitted to IEEE AIxVR 2026), conversational AI agents in VR, AR medical applications, and 
+                (submitted to IEEE AIxVR 2026), conversational Agentic AI agents in VR, AR medical applications, and 
                 environmental digital twins. My work bridges computer vision, spatial computing, and interaction design.
               </p>
               <p style={styles.aboutText}>
