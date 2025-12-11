@@ -4,7 +4,7 @@ import { Text, Float, MeshDistortMaterial, Sphere, OrbitControls, Stars } from '
 import profilePic from './reggie-pic.png';
 import resumePDF from './segovia_resume.pdf';
 import cvPDF from './segovia_cv.pdf';
-import { GraduationCap, Award, BookOpen, Star } from 'lucide-react';
+import { GraduationCap, Award, BookOpen, Star, Github, Linkedin, Mail, FileText, Globe, Glasses, Brain, Palette, Gamepad2, Code, Cpu, MapPin, Target, Monitor} from 'lucide-react';
 
 const AnimatedBackground = () => {
   const meshRef = useRef();
@@ -160,6 +160,11 @@ const Portfolio = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [showImageModal, setShowImageModal] = useState(false);
+  const navScrollRef = useRef(null);
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftRef = useRef(0);
+  const movedRef = useRef(false);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -187,6 +192,40 @@ const Portfolio = () => {
       alert('Email copied to clipboard!');
     });
   };
+
+  const onNavPointerDown = (e) => {
+  const el = navScrollRef.current;
+  if (!el) return;
+
+  isDraggingRef.current = true;
+  movedRef.current = false;
+
+  startXRef.current = e.clientX;
+  scrollLeftRef.current = el.scrollLeft;
+};
+
+const onNavPointerMove = (e) => {
+  const el = navScrollRef.current;
+  if (!el || !isDraggingRef.current) return;
+
+  const dx = e.clientX - startXRef.current;
+  if (Math.abs(dx) > 3) movedRef.current = true;
+
+  el.scrollLeft = scrollLeftRef.current - dx;
+};
+
+const endNavDrag = () => {
+  isDraggingRef.current = false;
+};
+
+const onNavClick = (e, item) => {
+  if (movedRef.current) {
+    e.preventDefault();
+    e.stopPropagation();
+    return;
+  }
+  scrollToSection(item);
+};
 
   const researchProjects = [
     {
@@ -274,7 +313,7 @@ const Portfolio = () => {
         "MUL 2010 Experiencing Music",
         "CEN 3031 Intro to Software Engineering",
         "CIS 4204 Penetration Testing",
-        "CIS 4301 Information & Database Systems I",
+        "CIS 4301 Information & Database Systems",
         "CIS 4930 Enterprise Software Engineering",
         "CAP 3027 Intro to Computational Media",
         "CAP 4770 Intro to Data Science",
@@ -671,7 +710,7 @@ const Portfolio = () => {
 
   const skillCategories = [
     {
-      icon: "🥽",
+      icon: <Glasses size={40} />,
       title: "Immersive Technologies (VR/AR)",
       skills: ["Unity XR", "Unreal Engine", "Spatial Computing", "Projected Reality", "Hand Tracking", "LiveLink"],
       style: {
@@ -685,7 +724,7 @@ const Portfolio = () => {
       }
     },
     {
-      icon: "🤖",
+      icon: <Brain size={40} />,
       title: "AI & Machine Learning",
       skills: ["Computer Vision", "NLP", "TensorFlow", "PyTorch", "MediaPipe", "LLM Integration", "Agentic AI"],
       style: {
@@ -699,7 +738,7 @@ const Portfolio = () => {
       }
     },
     {
-      icon: "🎨",
+      icon: <Palette size={40} />,
       title: "HCI & Interaction Design",
       skills: ["User Evaluation", "Tangible Interfaces", "Embodied Interaction", "UI/UX Design", "Spatial Interaction", "Natural User Interfaces"],
       style: {
@@ -713,7 +752,7 @@ const Portfolio = () => {
       }
     },
     {
-      icon: "🎮",
+      icon: <Gamepad2 size={40} />,
       title: "Graphics & 3D Modeling",
       skills: ["Blender", "3D Modeling", "Polyhedral-Net Splines", "Mesh Processing", "Procedural Generation", "ArcGIS Pro"],
       style: {
@@ -727,7 +766,7 @@ const Portfolio = () => {
       }
     },
     {
-      icon: "💻",
+      icon: <Code size={40} />,
       title: "Programming Languages",
       skills: ["Python", "C++", "C#", "Swift", "JavaScript", "Java"],
       style: {
@@ -741,7 +780,7 @@ const Portfolio = () => {
       }
     },
     {
-      icon: "🚀",
+      icon: <Cpu size={40} />,
       title: "High-Performance Computing",
       skills: ["CUDA", "OpenCL", "Parallel Computing", "GPU Optimization", "HiperGator Cluster"],
       style: {
@@ -910,7 +949,7 @@ const Portfolio = () => {
       background: 'rgba(0, 0, 0, 0.3)',
       backdropFilter: 'blur(20px)',
       borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-      padding: '1rem 0'
+      padding: '0.75rem 0'
     },
     navContainer: {
       maxWidth: '1200px',
@@ -927,14 +966,26 @@ const Portfolio = () => {
       WebkitBackgroundClip: 'text',
       backgroundClip: 'text',
       color: 'transparent',
-      fontFamily: "'Orbitron', monospace"
+      fontFamily: "'Orbitron', monospace",
+      flexShrink: 0,
+      marginRight: '2rem'
     },
     navLinks: {
       display: 'flex',
+      alignItems: 'center',
       gap: '1.5rem',
       listStyle: 'none',
       margin: 0,
-      padding: 0
+      padding: '0.25rem 0',
+      paddingRight: '1.5rem',
+      paddingLeft: '0.5rem',
+      overflowX: 'auto',
+      whiteSpace: 'nowrap',
+      maxWidth: '100%',
+      scrollbarWidth: 'none',
+      msOverflowStyle: 'none',
+      flex: 1,
+      minWidth: 0
     },
     navButton: {
       background: 'none',
@@ -945,8 +996,10 @@ const Portfolio = () => {
       transition: 'all 0.3s ease',
       fontSize: '0.95rem',
       padding: '0.5rem 1rem',
+      lineHeight: 1,
       borderRadius: '20px',
-      position: 'relative'
+      position: 'relative',
+      flexShrink: 0
     },
     mobileMenuButton: {
       display: 'none',
@@ -1364,11 +1417,25 @@ const Portfolio = () => {
       <nav style={styles.nav}>
         <div style={styles.navContainer}>
           <div style={styles.logo}>Reggie Segovia</div>
-          <div style={styles.navLinks}>
+          <div
+            ref={navScrollRef}
+            style={{
+              ...styles.navLinks,
+              cursor: isDraggingRef.current ? 'grabbing' : 'grab',
+              userSelect: 'none',
+              touchAction: 'pan-y'
+            }}
+            className="nav-links"
+            onPointerDown={onNavPointerDown}
+            onPointerMove={onNavPointerMove}
+            onPointerUp={endNavDrag}
+            onPointerLeave={endNavDrag}
+            onPointerCancel={endNavDrag}
+          >
             {['home', 'about', 'education', 'skills', 'research', 'projects', 'research-experience', 'work-experience', 'contact'].map((item) => (
               <button
                 key={item}
-                onClick={() => scrollToSection(item)}
+                onClick={(e) => onNavClick(e, item)}
                 style={{
                   ...styles.navButton,
                   background: currentSection === item ? 'rgba(167, 139, 250, 0.2)' : 'transparent',
@@ -1438,12 +1505,12 @@ const Portfolio = () => {
           
           <div style={styles.socialLinks}>
             {[
-              { icon: "📧", label: "Email", isEmail: true },
-              { icon: "💼", label: "LinkedIn", href: "https://www.linkedin.com/in/reggie-segovia/" },
-              { icon: "🐙", label: "GitHub", href: "https://github.com/rs-dkd" },
-              { icon: "📄", label: "Resume", href: resumePDF },
-              { icon: "📄", label: "CV", href: cvPDF },
-              { icon: "🌐", label: "Portfolio", href: "https://rs-dkd.github.io/my-portfolio/" }
+              { icon: <Mail size={18} />, label: "Email", isEmail: true },
+              { icon: <Linkedin size={18} />, label: "LinkedIn", href: "https://www.linkedin.com/in/reggie-segovia/" },
+              { icon: <Github size={18} />, label: "GitHub", href: "https://github.com/rs-dkd" },
+              { icon: <FileText size={18} />, label: "Resume", href: resumePDF },
+              { icon: <FileText size={18} />, label: "CV", href: cvPDF },
+              { icon: <Globe size={18} />, label: "Portfolio", href: "https://rs-dkd.github.io/my-portfolio/" }
             ].map((link, index) => (
               link.isEmail ? (
                 <div
@@ -1832,7 +1899,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* SEPARATED SECTION: Research Experience */}
+      {/* Research Experience */}
       <section id="research-experience" style={styles.section}>
         <div>
           <h2 style={styles.sectionTitle}>Research Experience</h2>
@@ -1891,7 +1958,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* SEPARATED SECTION: Work/Teaching Experience */}
+      {/* Work/Teaching Experience */}
       <section id="work-experience" style={styles.section}>
         <div>
           <h2 style={styles.sectionTitle}>Work & Teaching Experience</h2>
@@ -1961,37 +2028,37 @@ const Portfolio = () => {
           <div style={styles.contactGrid}>
             {[
               { 
-                icon: "📧", 
+                icon: <Mail size={40} />, 
                 title: "Email", 
                 value: "rdavidsegovia@gmail.com",
                 isEmail: true 
               },
               { 
-                icon: "🎓", 
+                icon: <GraduationCap size={40} />, 
                 title: "Research", 
-                value: "HCI • VR/AR • Embodied Interaction", 
+                value: "HCI • Immersive Environments • Computer Graphics • Embodied Interaction", 
                 href: "#research" 
               },
               { 
-                icon: "💼", 
+                icon: <Linkedin size={40} />, 
                 title: "LinkedIn", 
                 value: "Professional Network", 
                 href: "https://www.linkedin.com/in/reggie-segovia/" 
               },
               { 
-                icon: "🐙", 
+                icon: <Github size={40} />, 
                 title: "GitHub", 
                 value: "github.com/rs-dkd", 
                 href: "https://github.com/rs-dkd" 
               },
               { 
-                icon: "📍", 
+                icon: <MapPin size={40} />, 
                 title: "Location", 
                 value: "Gainesville, FL", 
                 href: "https://www.google.com/maps/place/Gainesville,+FL" 
               },
               { 
-                icon: "🎯", 
+                icon: <Target size={40} />, 
                 title: "Focus", 
                 value: "Human-Computer Interaction", 
                 href: "#research" 
@@ -2089,10 +2156,13 @@ const Portfolio = () => {
           100% { transform: rotate(360deg); }
         }
         
-        /* Responsive design */
+        .nav-links::-webkit-scrollbar {
+          display: none;
+        }
+
         @media (max-width: 1024px) {
           .nav-links {
-            display: none !important;
+            display: flex !important;
           }
           
           .mobile-menu-button {
