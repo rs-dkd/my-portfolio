@@ -243,7 +243,7 @@ const onNavClick = (e, item) => {
       type: "HCI Research",
       description: "Extended the Graspable Memories platform into a fully volumetric interaction model supporting hand tilt, improved tracking latency, continuous rotation, and spatial depth as control inputs. Broadened EPMR applications from personal media to collaborative creative systems.",
       tech: ["Embodied Interaction", "Volumetric Gestures", "HCI", "Unity", "Spatial Computing"],
-      status: "In Progress",
+      status: "Submitted",
       collaboration: "Dr. Alexandre Gomes de Siqueira",
       links: {},
       images: []
@@ -263,7 +263,7 @@ const onNavClick = (e, item) => {
       type: "Tangible HCI",
       description: "Designed UI and led user evaluation for system repositioning fingerprints as expressive traces of presence and memory embedded in sculptable materials. Contributed to fingerprint tracking system development using computer vision.",
       tech: ["Tangible Interfaces", "Computer Vision", "HCI", "UI Design", "User Evaluation"],
-      status: "In Progress",
+      status: "Completed",
       collaboration: "Dr. Alexandre Gomes de Siqueira",
       links: {},
       images: []
@@ -273,7 +273,7 @@ const onNavClick = (e, item) => {
       type: "Graphics & HCI",
       description: "Leading development of VR recreation of Blender with intuitive spatial modeling operations. Implementing natural hand gesture paradigms to replace traditional mouse-keyboard interfaces for 3D modeling workflows.",
       tech: ["VR", "Spatial Computing", "3D Modeling", "HCI", "Unity", "Polyhedral-Net Splines"],
-      status: "In Progress",
+      status: "Completed",
       collaboration: "Dr. Jörg Peters",
       links: { github: "https://github.com/rs-dkd/BlendReality" }, images: []
       },
@@ -1599,7 +1599,7 @@ const onNavClick = (e, item) => {
                 {[
                   { label: "Overall GPA", value: "3.81" },
                   { label: "Research Projects", value: "7" },
-                  { label: "Publications", value: "1 Submitted" },
+                  { label: "Publications", value: "2 Submitted" },
                   { label: "Research Focus", value: "HCI" }
                 ].map((stat, index) => (
                   <div 
