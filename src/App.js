@@ -231,9 +231,9 @@ const onNavClick = (e, item) => {
     {
       title: "Graspable Memories: AI-Powered Projected Reality",
       type: "HCI Research",
-      description: "Submitted to IEEE AIxVR 2026. Developed an Embodied Projected Mixed Reality system using AI hand tracking to enable seamless on-hand interaction with images, leveraging natural occlusion as a core interaction mechanism.",
+      description: "Accepted to IEEE AIxVR 2026. Developed an Embodied Projected Mixed Reality system using AI hand tracking to enable seamless on-hand interaction with images, leveraging natural occlusion as a core interaction mechanism.",
       tech: ["Computer Vision", "AI Hand Tracking", "Projected Reality", "HCI", "Unity", "MediaPipe"],
-      status: "Under Review",
+      status: "Accepted",
       collaboration: "Dr. Alexandre Gomes de Siqueira",
       links: { },
       images: []
@@ -241,9 +241,9 @@ const onNavClick = (e, item) => {
     {
       title: "Beyond the Grasp: Volumetric EPMR (Senior Thesis)",
       type: "HCI Research",
-      description: "Extended the Graspable Memories platform into a fully volumetric interaction model supporting hand tilt, improved tracking latency, continuous rotation, and spatial depth as control inputs. Broadened EPMR applications from personal media to collaborative creative systems.",
+      description: "Extended the Graspable Memories platform into a fully volumetric interaction model supporting hand tilt, improved tracking latency, continuous rotation, and spatial depth as control inputs. Expanded interaction modality through AI-powered object tracking. Broadened EPMR applications from personal media to collaborative creative systems.",
       tech: ["Embodied Interaction", "Volumetric Gestures", "HCI", "Unity", "Spatial Computing"],
-      status: "Submitted",
+      status: "Accepted",
       collaboration: "Dr. Alexandre Gomes de Siqueira",
       links: {},
       images: []
@@ -253,7 +253,7 @@ const onNavClick = (e, item) => {
       type: "HCI & AI",
       description: "Developed immersive VR conversational AI with full-stack speech pipeline (Whisper STT, Gemini LLM, ElevenLabs TTS) and NeuroSync lip-sync. Leading integration of agentic AI framework for autonomous reasoning capabilities.",
       tech: ["VR", "Conversational AI", "HCI", "Whisper", "Gemini", "ElevenLabs", "Unreal Engine", "Agentic AI"],
-      status: "In Progress",
+      status: "Completed",
       collaboration: "Dr. Alexandre Gomes de Siqueira",
       links: {},
       images: []
@@ -535,12 +535,12 @@ const onNavClick = (e, item) => {
             <div>
               <h2 style={styles.schoolName}>University of Florida</h2>
               <p style={styles.subText}>Bachelor of Science in Computer Science</p>
-              <p style={styles.metaText}>Gainesville, FL • Jan 2024 – Dec 2025 (Expected)</p>
+              <p style={styles.metaText}>Gainesville, FL • Jan 2024 – Dec 2025</p>
             </div>
             <div style={styles.gpaBox}>
               <div style={styles.gpaValue}>
                 <Star size={20} fill="#facc15" color="#facc15" />
-                <span>3.81 GPA</span>
+                <span>3.83 GPA</span>
               </div>
               <p style={{ fontSize: '0.875rem', color: '#94a3b8' }}>Summa Cum Laude</p>
             </div>
@@ -842,7 +842,7 @@ const onNavClick = (e, item) => {
       location: "Gainesville, FL",
       description: "Leading development of multiple HCI research projects focused on projected reality, conversational Agentic AI, and tangible interfaces under Dr. Alexandre Gomes de Siqueira.",
       achievements: [
-        "Lead developer of AI-powered projected reality system (Graspable Memories) - paper submitted to IEEE AIxVR 2026",
+        "Lead developer of AI-powered projected reality system (Graspable Memories) - paper accepted to IEEE AIxVR 2026",
         "Extending platform into fully volumetric interaction model for senior thesis (Beyond the Grasp)",
         "Built VR conversational AI system integrating Whisper, Gemini LLM, ElevenLabs TTS, and NeuroSync lip-sync",
         "Leading integration of agentic AI framework with autonomous reasoning capabilities",
@@ -875,7 +875,7 @@ const onNavClick = (e, item) => {
         "Designed VR flood simulation interface with user tagging system for damage/risk assessment",
         "Created data-driven UI for capturing subjective perceptions in immersive environments",
         "Led comparative study of procedural modeling workflows (ArcGIS Pro, CityEngine, BlenderGIS)",
-        "Modeled 20+ buildings using real-world textures from GIS data and Street View imagery",
+        "Modeled 30+ buildings using real-world textures from GIS data and Street View imagery",
         "Developed Python automation scripts for mesh optimization in large-scale urban environments"
       ],
       tech: ["VR", "AR", "Unity", "Unreal Engine", "Digital Twins", "Environmental HCI", "Python"]
@@ -1586,7 +1586,7 @@ const onNavClick = (e, item) => {
               </p>
               <p style={styles.aboutText}>
                 Currently working on multiple HCI research projects including an AI-powered projected reality system 
-                (submitted to IEEE AIxVR 2026), conversational Agentic AI agents in VR, AR medical applications, and 
+                (Accepted to IEEE AIxVR 2026), conversational Agentic AI agents in VR, AR medical applications, and 
                 environmental digital twins. My work bridges computer vision, spatial computing, and interaction design.
               </p>
               <p style={styles.aboutText}>
@@ -1599,7 +1599,7 @@ const onNavClick = (e, item) => {
                 {[
                   { label: "Overall GPA", value: "3.81" },
                   { label: "Research Projects", value: "7" },
-                  { label: "Publications", value: "2 Submitted" },
+                  { label: "Publications", value: "2 Accepted" },
                   { label: "Research Focus", value: "HCI" }
                 ].map((stat, index) => (
                   <div 
