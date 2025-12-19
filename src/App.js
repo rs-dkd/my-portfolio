@@ -249,6 +249,16 @@ const onNavClick = (e, item) => {
       images: []
     },
     {
+    title: "The Psychology of Command: Human-Virtual Agent Interaction",
+    type: "HCI & VR Research",
+    description: "Investigating how power dynamics and social hierarchy affect user comfort and performance in gesture-based interactions with virtual agents. Submitted as a poster to IEEE VR 2026.",
+    tech: ["VR", "HCI", "Social Dynamics", "User Study", "Unreal Engine"],
+    status: "Under Review (IEEE VR 2026)",
+    collaboration: "Dr. Alexandre Gomes de Siqueira",
+    links: {},
+    images: []
+    },
+    {
       title: "VirtualHuman 2.0: Conversational Agentic AI in VR",
       type: "HCI & AI",
       description: "Developed immersive VR conversational AI with full-stack speech pipeline (Whisper STT, Gemini LLM, ElevenLabs TTS) and NeuroSync lip-sync. Leading integration of agentic AI framework for autonomous reasoning capabilities.",
@@ -844,6 +854,7 @@ const onNavClick = (e, item) => {
       achievements: [
         "Lead developer of AI-powered projected reality system (Graspable Memories) - paper accepted to IEEE AIxVR 2026",
         "Extending platform into fully volumetric interaction model for senior thesis (Beyond the Grasp)",
+        "Co-authored research on power dynamics in human-agent interaction, resulting in a submission to IEEE VR 2026",
         "Built VR conversational AI system integrating Whisper, Gemini LLM, ElevenLabs TTS, and NeuroSync lip-sync",
         "Leading integration of agentic AI framework with autonomous reasoning capabilities",
         "Designed UI and conducted user evaluation for Embodied Inscriptions fingerprint tracking system"
@@ -1508,8 +1519,8 @@ const onNavClick = (e, item) => {
               { icon: <Mail size={18} />, label: "Email", isEmail: true },
               { icon: <Linkedin size={18} />, label: "LinkedIn", href: "https://www.linkedin.com/in/reggie-segovia/" },
               { icon: <Github size={18} />, label: "GitHub", href: "https://github.com/rs-dkd" },
-              { icon: <FileText size={18} />, label: "Resume", href: resumePDF },
               { icon: <FileText size={18} />, label: "CV", href: cvPDF },
+              { icon: <FileText size={18} />, label: "Resume", href: resumePDF },
               { icon: <Globe size={18} />, label: "Portfolio", href: "https://rs-dkd.github.io/my-portfolio/" }
             ].map((link, index) => (
               link.isEmail ? (
@@ -1597,9 +1608,9 @@ const onNavClick = (e, item) => {
               
               <div style={styles.statsGrid}>
                 {[
-                  { label: "Overall GPA", value: "3.81" },
-                  { label: "Research Projects", value: "7" },
-                  { label: "Publications", value: "2 Accepted" },
+                  { label: "Overall GPA", value: "3.83" },
+                  { label: "Research Projects", value: "8" },
+                  { label: "Publications", value: "2 Accepted, 1 Submitted" },
                   { label: "Research Focus", value: "HCI" }
                 ].map((stat, index) => (
                   <div 
@@ -1752,6 +1763,7 @@ const onNavClick = (e, item) => {
                              index === 3 ? 'linear-gradient(135deg, #db2777, #f472b6)' :
                              index === 4 ? 'linear-gradient(135deg, #dc2626, #f59e0b)' :
                              index === 5 ? 'linear-gradient(135deg, #ea580c, #f59e0b)' :
+                             index === 6 ? 'linear-gradient(135deg, #6366f1, #a855f7)' :
                              'linear-gradient(135deg, #059669, #06b6d4)'
                 }} />
                 
