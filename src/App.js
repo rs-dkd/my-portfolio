@@ -357,7 +357,7 @@ const onNavClick = (e, item) => {
       { date: "May 2022", title: "Started at UCF", color: "#3b82f6" },
       { date: "Dec 2023", title: "Earned Associate Degree", color: "#a855f7" },
       { date: "Jan 2024", title: "Transferred to UF", color: "#3b82f6" },
-      { date: "Dec 2025", title: "Expected Bachelor's Degree", color: "#facc15", pulse: true }
+      { date: "Dec 2025", title: "Earned Bachelor's Degree", color: "#facc15", pulse: true }
     ];
 
     const styles = {
