@@ -155,28 +155,23 @@ const SkillOrb = ({ position, color, label, description, onClick }) => {
 
 const Portfolio = () => {
   const [currentSection, setCurrentSection] = useState('home');
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [showParticles, setShowParticles] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [showImageModal, setShowImageModal] = useState(false);
+  const [canScroll, setCanScroll] = useState({ left: false, right: false });
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const navScrollRef = useRef(null);
   const isDraggingRef = useRef(false);
   const startXRef = useRef(0);
   const scrollLeftRef = useRef(0);
   const movedRef = useRef(false);
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth) * 2 - 1,
-        y: -(e.clientY / window.innerHeight) * 2 + 1
-      });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
   const scrollToSection = (sectionId) => {
     setCurrentSection(sectionId);
@@ -433,7 +428,7 @@ const onNavClick = (e, item) => {
       },
       courseGrid: {
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
         gap: '0.75rem',
         marginTop: '1rem'
       },
@@ -452,7 +447,6 @@ const onNavClick = (e, item) => {
         alignItems: 'center',
         gap: '0.5rem'
       },
-      // Timeline specific styles
       timelineContainer: {
         marginTop: '3rem',
         padding: '1.5rem',
@@ -935,22 +929,6 @@ const onNavClick = (e, item) => {
       overflowX: 'hidden',
       position: 'relative'
     },
-    cursor: {
-      position: 'fixed',
-      width: '20px',
-      height: '20px',
-      background: 'radial-gradient(circle, #a855f7 0%, transparent 70%)',
-      borderRadius: '50%',
-      pointerEvents: 'none',
-      zIndex: 9999,
-      mixBlendMode: 'screen',
-      transition: 'transform 0.1s ease-out',
-      left: `${(mousePosition.x + 1) * 50}%`,
-      top: `${(-mousePosition.y + 1) * 50}%`,
-      transform: 'translate(-50%, -50%)',
-      display: mousePosition.x > 0.98 ? 'none' : 'block',
-      boxShadow: '0 0 20px #a855f7'
-    },
     nav: {
       position: 'fixed',
       top: 0,
@@ -984,19 +962,22 @@ const onNavClick = (e, item) => {
     navLinks: {
       display: 'flex',
       alignItems: 'center',
-      gap: '1.5rem',
+      gap: '2rem',
       listStyle: 'none',
       margin: 0,
-      padding: '0.25rem 0',
+      padding: '10px 1rem',
+      height: '100%',
       paddingRight: '1.5rem',
       paddingLeft: '0.5rem',
       overflowX: 'auto',
+      overflowY: 'hidden',
       whiteSpace: 'nowrap',
       maxWidth: '100%',
       scrollbarWidth: 'none',
       msOverflowStyle: 'none',
       flex: 1,
-      minWidth: 0
+      minWidth: 0,
+      WebkitOverflowScrolling: 'touch'
     },
     navButton: {
       background: 'none',
@@ -1006,11 +987,13 @@ const onNavClick = (e, item) => {
       textTransform: 'capitalize',
       transition: 'all 0.3s ease',
       fontSize: '0.95rem',
-      padding: '0.5rem 1rem',
+      padding: '0.5rem 1.25rem',
+      margin: '2px, 0',
       lineHeight: 1,
       borderRadius: '20px',
       position: 'relative',
-      flexShrink: 0
+      flexShrink: 0,
+      fontWeight: '500'
     },
     mobileMenuButton: {
       display: 'none',
@@ -1115,7 +1098,7 @@ const onNavClick = (e, item) => {
     },
     aboutGrid: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
       gap: '4rem',
       alignItems: 'center',
       maxWidth: '1200px',
@@ -1161,7 +1144,8 @@ const onNavClick = (e, item) => {
       textAlign: 'center'
     },
     profileImage: {
-      width: '320px',
+      width: '90%',
+      maxWidth: '320px',
       height: '320px',
       margin: '0 auto',
       background: 'linear-gradient(45deg, #7c3aed, #ec4899, #06b6d4)',
@@ -1195,7 +1179,7 @@ const onNavClick = (e, item) => {
     },
     projectsGrid: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
       gap: '2.5rem',
       maxWidth: '1400px',
       margin: '0 auto'
@@ -1423,8 +1407,6 @@ const onNavClick = (e, item) => {
 
   return (
     <div style={styles.container}>
-      <div style={styles.cursor} />
-
       <nav style={styles.nav}>
         <div style={styles.navContainer}>
           <div style={styles.logo}>Reggie Segovia</div>
@@ -1500,8 +1482,8 @@ const onNavClick = (e, item) => {
             <pointLight position={[-10, -10, -5]} intensity={0.5} color="#ec4899" />
             <Suspense fallback={null}>
               {showParticles && <AnimatedBackground />}
-              <Hero3DText text="Reggie Segovia" position={[0, 1, 0]} size={2.2} />
-              <Hero3DText text="HCI Researcher & Developer" position={[0, 0, 0]} size={0.9} />
+              <Hero3DText text="Reggie Segovia" position={[0, 1, 0]} size={isMobile ? 1.5 : 2.2} />
+              <Hero3DText text="HCI Researcher & Developer" position={[0, 0, 0]} size={isMobile ? 0.6 : 0.9} />
             </Suspense>
             <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
           </Canvas>
@@ -1611,7 +1593,7 @@ const onNavClick = (e, item) => {
                   { label: "Overall GPA", value: "3.83" },
                   { label: "Research Projects", value: "8" },
                   { label: "Publications", value: "2 Accepted, 1 Submitted" },
-                  { label: "Research Focus", value: "HCI" }
+                  { label: "Research Focus", value: "HCI & Graphics" }
                 ].map((stat, index) => (
                   <div 
                     key={index} 
@@ -2187,16 +2169,30 @@ const onNavClick = (e, item) => {
         }
         
         @media (max-width: 768px) {
+
+          body::-webkit-scrollbar {
+            display: none;
+          }
+
+          body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+          }  
           .hero-content {
+            padding: 0 1rem;
+          }
+
+          .hero-text{
+            font-size: 1rem !important;
             padding: 0 1rem;
           }
           
           .section {
-            padding: 4rem 1rem;
+            padding: 4rem 1rem !important;
           }
           
           .section-title {
-            font-size: 2.5rem;
+            font-size: 2.5rem !important;
           }
           
           .projects-grid {
@@ -2217,9 +2213,17 @@ const onNavClick = (e, item) => {
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
           }
           
+          .experience-grid{
+            grid-template-columns: 1fr !important;
+          }
+          
           .experience-header {
             flex-direction: column;
             align-items: flex-start;
+          }
+
+          .nav-links::-webkit-scrollbar {
+            display: none;
           }
         }
         
