@@ -1145,7 +1145,7 @@ const onNavClick = (e, item) => {
     },
     statsGrid: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+      gridTemplateColumns: 'repeat(2, 1fr)',
       gap: '1.5rem',
       marginTop: '2rem'
     },
@@ -1633,9 +1633,9 @@ const onNavClick = (e, item) => {
               
               <div style={styles.statsGrid}>
                 {[
-                  { label: "Overall GPA", value: "3.83" },
+                  { label: "GPA", value: "3.83" },
                   { label: "Research Projects", value: "8" },
-                  { label: "Publications", value: "2 Accepted\n1 Submitted" },
+                  { label: "Publications", value: "2 Accepted\n1 Submitted", smallText: true },
                   { label: "Research Focus", value: "HCI &\nGraphics" }
                 ].map((stat, index) => (
                   <div 
@@ -1650,7 +1650,11 @@ const onNavClick = (e, item) => {
                       e.currentTarget.style.transform = 'translateY(0)';
                     }}
                   >
-                    <div style={{...styles.statValue, whiteSpace: 'pre-line'}}>{stat.value}</div>
+                    <div style={{
+                      ...styles.statValue, 
+                      fontSize: stat.smallText ? '1.1rem' : '1.5rem',
+                      lineHeight: 1.3
+                    }}>{stat.value}</div>
                     <div style={styles.statLabel}>{stat.label}</div>
                   </div>
                 ))}
