@@ -1046,10 +1046,12 @@ const onNavClick = (e, item) => {
     },
     hero: {
       position: 'relative',
+      minHeight: '100vh',
       height: '100vh',
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      paddingTop: '80px'
     },
     canvasContainer: {
       position: 'absolute',
@@ -1121,7 +1123,10 @@ const onNavClick = (e, item) => {
       WebkitBackgroundClip: 'text',
       backgroundClip: 'text',
       color: 'transparent',
-      fontFamily: "'Orbitron', monospace"
+      fontFamily: "'Orbitron', monospace",
+      wordBreak: 'break-word',
+      padding: '0 1rem',
+      lineHeight: 1.2
     },
     aboutGrid: {
       display: 'grid',
@@ -1148,23 +1153,31 @@ const onNavClick = (e, item) => {
       background: 'rgba(255, 255, 255, 0.05)',
       backdropFilter: 'blur(20px)',
       border: '1px solid rgba(255, 255, 255, 0.1)',
-      padding: '2rem',
+      padding: '1.5rem',
       borderRadius: '20px',
       textAlign: 'center',
-      transition: 'all 0.3s ease'
+      transition: 'all 0.3s ease',
+      minHeight: '120px',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center'
     },
     statValue: {
-      fontSize: '2rem',
+      fontSize: '1.5rem',
       fontWeight: 'bold',
       background: 'linear-gradient(45deg, #a78bfa, #f472b6)',
       WebkitBackgroundClip: 'text',
       backgroundClip: 'text',
-      color: 'transparent'
+      color: 'transparent',
+      wordBreak: 'break-word',
+      hyphens: 'auto'
     },
     statLabel: {
-      fontSize: '0.9rem',
+      fontSize: '0.85rem',
       color: '#9ca3af',
-      marginTop: '0.5rem'
+      marginTop: '0.5rem',
+      wordBreak: 'break-word',
+      lineHeight: 1.3
     },
     profileContainer: {
       position: 'relative',
@@ -1622,8 +1635,8 @@ const onNavClick = (e, item) => {
                 {[
                   { label: "Overall GPA", value: "3.83" },
                   { label: "Research Projects", value: "8" },
-                  { label: "Publications", value: "2 Accepted, 1 Submitted" },
-                  { label: "Research Focus", value: "HCI & Graphics" }
+                  { label: "Publications", value: "2 Accepted\n1 Submitted" },
+                  { label: "Research Focus", value: "HCI &\nGraphics" }
                 ].map((stat, index) => (
                   <div 
                     key={index} 
@@ -1637,7 +1650,7 @@ const onNavClick = (e, item) => {
                       e.currentTarget.style.transform = 'translateY(0)';
                     }}
                   >
-                    <div style={styles.statValue}>{stat.value}</div>
+                    <div style={{...styles.statValue, whiteSpace: 'pre-line'}}>{stat.value}</div>
                     <div style={styles.statLabel}>{stat.label}</div>
                   </div>
                 ))}
@@ -2199,10 +2212,34 @@ const onNavClick = (e, item) => {
         }
         
         @media (max-width: 768px) {
+          body::-webkit-scrollbar {
+            display: none;
+          }
+
+          body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+          }
+          
+          .hero-content {
+            padding: 0 1rem;
+          }
+
+          .hero-text {
+            font-size: 1rem !important;
+            padding: 0 1rem;
+          }
+          
+          .section {
+            padding: 4rem 1rem !important;
+          }
+          
           .section-title {
             font-size: 2rem !important;
             padding: 0 1rem;
             word-wrap: break-word;
+            line-height: 1.2 !important;
+            hyphens: auto;
           }
           
           .stats-grid {
@@ -2223,15 +2260,57 @@ const onNavClick = (e, item) => {
           .project-card {
             margin: 0 0.5rem;
           }
+          
+          .about-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+          }
+          
+          .profile-image {
+            width: 250px;
+            height: 250px;
+          }
+          
+          .contact-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          }
+          
+          .experience-grid {
+            grid-template-columns: 1fr !important;
+          }
+          
+          .experience-header {
+            flex-direction: column;
+            align-items: flex-start;
+          }
         }
 
         @media (max-width: 480px) {
-          .section-title {
-            font-size: 1.75rem !important;
-          }
-          
           .hero-text {
             font-size: 0.95rem !important;
+          }
+          
+          .section-title {
+            font-size: 1.75rem !important;
+            line-height: 1.3 !important;
+          }
+          
+          .social-links {
+            flex-direction: column;
+            align-items: center;
+          }
+          
+          .skill-tags {
+            justify-content: center;
+          }
+          
+          .tech-tags {
+            justify-content: center;
+          }
+          
+          .project-links {
+            flex-direction: column;
+            align-items: center;
           }
         }
         
