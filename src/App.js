@@ -161,12 +161,32 @@ const Portfolio = () => {
   const [showImageModal, setShowImageModal] = useState(false);
   const [canScroll, setCanScroll] = useState({ left: false, right: false });
   const [isMobile, setIsMobile] = useState(false);
+  const [navVisible, setNavVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY < 100) {
+        setNavVisible(true);
+      } else if (currentScrollY > lastScrollY) {
+        setNavVisible(false);
+      } else {
+        setNavVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
   const navScrollRef = useRef(null);
   const isDraggingRef = useRef(false);
   const startXRef = useRef(0);
@@ -189,24 +209,28 @@ const Portfolio = () => {
   };
 
   const onNavPointerDown = (e) => {
-  const el = navScrollRef.current;
-  if (!el) return;
+    const el = navScrollRef.current;
+    if (!el) return;
 
-  isDraggingRef.current = true;
-  movedRef.current = false;
+    isDraggingRef.current = true;
+    movedRef.current = false;
 
-  startXRef.current = e.clientX;
-  scrollLeftRef.current = el.scrollLeft;
-};
+    startXRef.current = e.pageX || (e.touches && e.touches[0].pageX);
+    scrollLeftRef.current = el.scrollLeft;
+    
+    e.preventDefault();
+  };
 
 const onNavPointerMove = (e) => {
   const el = navScrollRef.current;
   if (!el || !isDraggingRef.current) return;
 
-  const dx = e.clientX - startXRef.current;
+  const x = e.pageX || (e.touches && e.touches[0].pageX);
+  const dx = x - startXRef.current;
   if (Math.abs(dx) > 3) movedRef.current = true;
 
   el.scrollLeft = scrollLeftRef.current - dx;
+  e.preventDefault();
 };
 
 const endNavDrag = () => {
@@ -428,9 +452,10 @@ const onNavClick = (e, item) => {
       },
       courseGrid: {
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
         gap: '0.75rem',
-        marginTop: '1rem'
+        marginTop: '1rem',
+        padding: '0 0.5rem'
       },
       courseItem: {
         display: 'flex',
@@ -938,7 +963,9 @@ const onNavClick = (e, item) => {
       background: 'rgba(0, 0, 0, 0.3)',
       backdropFilter: 'blur(20px)',
       borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-      padding: '0.75rem 0'
+      padding: '0.75rem 0',
+      transform: navVisible ? 'translateY(0)' : 'translateY(-100%)',
+      transition: 'transform 0.3s ease-in-out'
     },
     navContainer: {
       maxWidth: '1200px',
@@ -1113,7 +1140,7 @@ const onNavClick = (e, item) => {
     },
     statsGrid: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(2, 1fr)',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
       gap: '1.5rem',
       marginTop: '2rem'
     },
@@ -1407,24 +1434,27 @@ const onNavClick = (e, item) => {
 
   return (
     <div style={styles.container}>
-      <nav style={styles.nav}>
+      <nav style={{...styles.nav, transform: navVisible ? 'translateY(0)' : 'translateY(-100%)'}}>
         <div style={styles.navContainer}>
           <div style={styles.logo}>Reggie Segovia</div>
-          <div
-            ref={navScrollRef}
-            style={{
-              ...styles.navLinks,
-              cursor: isDraggingRef.current ? 'grabbing' : 'grab',
-              userSelect: 'none',
-              touchAction: 'pan-y'
-            }}
-            className="nav-links"
-            onPointerDown={onNavPointerDown}
-            onPointerMove={onNavPointerMove}
-            onPointerUp={endNavDrag}
-            onPointerLeave={endNavDrag}
-            onPointerCancel={endNavDrag}
-          >
+            <div
+              ref={navScrollRef}
+              style={{
+                ...styles.navLinks,
+                cursor: isDraggingRef.current ? 'grabbing' : 'grab',
+                userSelect: 'none',
+                touchAction: 'pan-x'
+              }}
+              className="nav-links"
+              onPointerDown={onNavPointerDown}
+              onPointerMove={onNavPointerMove}
+              onPointerUp={endNavDrag}
+              onPointerLeave={endNavDrag}
+              onPointerCancel={endNavDrag}
+              onTouchStart={onNavPointerDown}
+              onTouchMove={onNavPointerMove}
+              onTouchEnd={endNavDrag}
+            >
             {['home', 'about', 'education', 'skills', 'research', 'projects', 'research-experience', 'work-experience', 'contact'].map((item) => (
               <button
                 key={item}
@@ -2169,89 +2199,39 @@ const onNavClick = (e, item) => {
         }
         
         @media (max-width: 768px) {
-
-          body::-webkit-scrollbar {
-            display: none;
-          }
-
-          body {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-          }  
-          .hero-content {
-            padding: 0 1rem;
-          }
-
-          .hero-text{
-            font-size: 1rem !important;
-            padding: 0 1rem;
-          }
-          
-          .section {
-            padding: 4rem 1rem !important;
-          }
-          
           .section-title {
-            font-size: 2.5rem !important;
+            font-size: 2rem !important;
+            padding: 0 1rem;
+            word-wrap: break-word;
           }
           
-          .projects-grid {
-            grid-template-columns: 1fr;
-          }
-          
-          .about-grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-          }
-          
-          .profile-image {
-            width: 250px;
-            height: 250px;
-          }
-          
-          .contact-grid {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          }
-          
-          .experience-grid{
+          .stats-grid {
             grid-template-columns: 1fr !important;
+            gap: 1rem !important;
           }
           
-          .experience-header {
-            flex-direction: column;
-            align-items: flex-start;
+          .course-grid {
+            grid-template-columns: 1fr !important;
+            padding: 0 0.5rem;
           }
-
-          .nav-links::-webkit-scrollbar {
-            display: none;
+          
+          .course-item {
+            font-size: 0.85rem !important;
+          }
+          
+          .experience-card,
+          .project-card {
+            margin: 0 0.5rem;
           }
         }
-        
+
         @media (max-width: 480px) {
-          .hero-text {
-            font-size: 1.1rem;
-          }
-          
           .section-title {
-            font-size: 2rem;
+            font-size: 1.75rem !important;
           }
           
-          .social-links {
-            flex-direction: column;
-            align-items: center;
-          }
-          
-          .skill-tags {
-            justify-content: center;
-          }
-          
-          .tech-tags {
-            justify-content: center;
-          }
-          
-          .project-links {
-            flex-direction: column;
-            align-items: center;
+          .hero-text {
+            font-size: 0.95rem !important;
           }
         }
         
