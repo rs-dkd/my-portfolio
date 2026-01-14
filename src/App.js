@@ -4,6 +4,13 @@ import { Text, Float, MeshDistortMaterial, Sphere, OrbitControls, Stars } from '
 import profilePic from './reggie-pic.png';
 import resumePDF from './segovia_resume.pdf';
 import cvPDF from './segovia_cv.pdf';
+import graspableMemories1 from './graspable-memories-1.png';
+import graspableMemories2 from './graspable-memories-2.png';
+import graspableMemories3 from './graspable-memories-3.png';
+import graspableMemories4 from './graspable-memories-4.png';
+import graspableMemories5 from './graspable-memories-5.png';
+import graspableMemories6 from './graspable-memories-6.png';
+import graspableMemories7 from './graspable-memories-7.png';
 import { GraduationCap, Award, BookOpen, Star, Github, Linkedin, Mail, FileText, Globe, Glasses, Brain, Palette, Gamepad2, Code, Cpu, MapPin, Target, Monitor} from 'lucide-react';
 
 const AnimatedBackground = () => {
@@ -158,6 +165,7 @@ const Portfolio = () => {
   const [showParticles, setShowParticles] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showImageModal, setShowImageModal] = useState(false);
   const [canScroll, setCanScroll] = useState({ left: false, right: false });
   const [isMobile, setIsMobile] = useState(false);
@@ -255,7 +263,7 @@ const onNavClick = (e, item) => {
       status: "Accepted",
       collaboration: "Dr. Alexandre Gomes de Siqueira",
       links: { },
-      images: []
+      images: [graspableMemories1, graspableMemories2, graspableMemories3, graspableMemories4, graspableMemories5, graspableMemories6, graspableMemories7]
     },
     {
       title: "Beyond the Grasp: Volumetric EPMR (Senior Thesis)",
@@ -677,6 +685,191 @@ const onNavClick = (e, item) => {
       </div>
     );
   };
+
+  const ImageModal = ({ project, onClose, currentIndex, setCurrentIndex }) => {
+  if (!project || !project.images || project.images.length === 0) return null;
+  
+  return (
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      background: 'rgba(0, 0, 0, 0.7)',
+      backdropFilter: 'blur(5px)',
+      zIndex: 1000,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '1rem'
+    }} onClick={onClose}>
+      <div style={{
+        maxWidth: '1000px',
+        width: '100%',
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+      }} onClick={(e) => e.stopPropagation()}>
+        
+        {/* Close Button */}
+        <button onClick={onClose} style={{
+          position: 'absolute',
+          top: '-2.5rem',
+          right: '0',
+          background: 'rgba(255, 255, 255, 0.1)',
+          backdropFilter: 'blur(10px)',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
+          color: 'white',
+          fontSize: '1.5rem',
+          cursor: 'pointer',
+          width: '40px',
+          height: '40px',
+          borderRadius: '50%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1001
+        }}>✕</button>
+        
+        {/* Navigation Container */}
+        <div style={{
+          position: 'relative',
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '1rem'
+        }}>
+          
+          {/* Left Arrow */}
+          {project.images.length > 1 && (
+            <button 
+              onClick={(e) => {
+                e.stopPropagation();
+                setCurrentIndex((currentIndex - 1 + project.images.length) % project.images.length);
+              }} 
+              style={{
+                background: 'rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                color: 'white',
+                fontSize: '1.5rem',
+                padding: '0.75rem 1rem',
+                cursor: 'pointer',
+                borderRadius: '50%',
+                flexShrink: 0,
+                width: '50px',
+                height: '50px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = 'rgba(167, 139, 250, 0.3)';
+                e.target.style.transform = 'scale(1.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = 'rgba(255, 255, 255, 0.1)';
+                e.target.style.transform = 'scale(1)';
+              }}
+            >
+              ←
+            </button>
+          )}
+          
+          {/* Image */}
+          <img 
+            src={project.images[currentIndex]} 
+            alt={`${project.title} - Image ${currentIndex + 1}`}
+            style={{
+              maxWidth: project.images.length > 1 ? 'calc(100% - 140px)' : '100%',
+              width: 'auto',
+              height: 'auto',
+              maxHeight: '70vh',
+              objectFit: 'contain',
+              borderRadius: '12px',
+              border: '2px solid rgba(167, 139, 250, 0.3)',
+              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.5)'
+            }} 
+          />
+          
+          {/* Right Arrow */}
+          {project.images.length > 1 && (
+            <button 
+              onClick={(e) => {
+                e.stopPropagation();
+                setCurrentIndex((currentIndex + 1) % project.images.length);
+              }}
+              style={{
+                background: 'rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                color: 'white',
+                fontSize: '1.5rem',
+                padding: '0.75rem 1rem',
+                cursor: 'pointer',
+                borderRadius: '50%',
+                flexShrink: 0,
+                width: '50px',
+                height: '50px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = 'rgba(167, 139, 250, 0.3)';
+                e.target.style.transform = 'scale(1.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = 'rgba(255, 255, 255, 0.1)';
+                e.target.style.transform = 'scale(1)';
+              }}
+            >
+              →
+            </button>
+          )}
+        </div>
+        
+        {/* Image Counter */}
+        {project.images.length > 1 && (
+          <div style={{
+            textAlign: 'center',
+            color: 'white',
+            marginTop: '1rem',
+            fontSize: '1rem',
+            background: 'rgba(0, 0, 0, 0.5)',
+            backdropFilter: 'blur(10px)',
+            padding: '0.5rem 1.5rem',
+            borderRadius: '20px',
+            border: '1px solid rgba(255, 255, 255, 0.2)'
+          }}>
+            {currentIndex + 1} / {project.images.length}
+          </div>
+        )}
+        
+        {/* Project Title */}
+        <div style={{
+          textAlign: 'center',
+          color: 'white',
+          marginTop: '0.5rem',
+          fontSize: '1.1rem',
+          fontWeight: '600',
+          background: 'rgba(0, 0, 0, 0.5)',
+          backdropFilter: 'blur(10px)',
+          padding: '0.75rem 1.5rem',
+          borderRadius: '20px',
+          border: '1px solid rgba(167, 139, 250, 0.3)'
+        }}>
+          {project.title}
+        </div>
+      </div>
+    </div>
+  );
+};
 
   const personalProjects = [
     {
@@ -1772,7 +1965,8 @@ const onNavClick = (e, item) => {
             {researchProjects.map((project, index) => (
               <div
                 key={index}
-                style={styles.projectCard}
+                onClick={() => project.images && project.images.length > 0 && setSelectedProject(project)}
+                style={{...styles.projectCard, cursor: project.images?.length > 0 ? 'pointer' : 'default'}}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'scale(1.03) translateY(-5px)';
                   e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
@@ -1870,9 +2064,10 @@ const onNavClick = (e, item) => {
           <div style={styles.projectsGrid}>
             {personalProjects.map((project, index) => (
               <div
-                key={index}
-                style={styles.projectCard}
-                onMouseEnter={(e) => {
+                  key={index}
+                  onClick={() => project.images && project.images.length > 0 && setSelectedProject(project)}
+                  style={{...styles.projectCard, cursor: project.images?.length > 0 ? 'pointer' : 'default'}}
+                  onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'scale(1.03) translateY(-5px)';
                   e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
                   e.currentTarget.style.boxShadow = '0 25px 50px rgba(124, 58, 237, 0.3)';
@@ -2178,6 +2373,16 @@ const onNavClick = (e, item) => {
           </div>
         </div>
       </section>
+
+      <ImageModal 
+        project={selectedProject} 
+        onClose={() => {
+          setSelectedProject(null);
+          setCurrentImageIndex(0);
+        }}
+        currentIndex={currentImageIndex}
+        setCurrentIndex={setCurrentImageIndex}
+      />
 
       <style>{`
         @keyframes gradientShift {
