@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef, Suspense } from 'react';
+import React, { useState, useEffect, useRef, useMemo, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Text, Float, MeshDistortMaterial, Sphere, OrbitControls, Stars } from '@react-three/drei';
+import * as THREE from 'three';
 import profilePic from './reggie-pic.png';
 import resumePDF from './segovia_resume.pdf';
 import cvPDF from './segovia_cv.pdf';
@@ -11,6 +12,83 @@ import graspableMemories4 from './graspable-memories-4.png';
 import graspableMemories5 from './graspable-memories-5.png';
 import graspableMemories6 from './graspable-memories-6.png';
 import graspableMemories7 from './graspable-memories-7.png';
+import seniorthesis1 from './seniorthesis1.png';
+import seniorthesis2 from './seniorthesis2.png';
+import seniorthesis3 from './seniorthesis3.jpg';
+import seniorthesis4 from './seniorthesis4.jpg';
+import seniorthesis5 from './seniorthesis5.jpg';
+import seniorthesis6 from './seniorthesis6.png';
+import vh1 from './virtualhuman1.png';
+import vh2 from './virtualhuman2.png';
+import vh3 from './virtualhuman3.png';
+import vh4 from './virtualhuman4.png';
+import vh5 from './virtualhuman5.png';
+import psych1 from './psychagent.png';
+import inscription1 from './inscription1.png';
+import inscription2 from './inscription2.png';
+import inscription3 from './inscription3.png';
+import blend1 from './blend1.png';
+import blend2 from './blend2.png';
+import blend3 from './blend3.png';
+import blend4 from './blend4.png';
+import blend5 from './blend5.png';
+import blend6 from './blend6.png';
+import blend7 from './blend7.png';
+import blend8 from './blend8.png';
+import neonatal1 from './neonatal1.png';
+import neonatal2 from './neonatal2.png';
+import neonatal3 from './neonatal3.png';
+import neonatal4 from './neonatal4.png';
+import neonatal5 from './neonatal5.png';
+import neonatal6 from './neonatal6.png';
+import neonatal7 from './neonatal7.png';
+import flood1 from './flood1.png';
+import flood2 from './flood2.png';
+import flood3 from './flood3.png';
+import flood4 from './flood4.png';
+import flood5 from './flood5.png';
+import flood6 from './flood6.png';
+import flood7 from './flood7.png';
+import flood8 from './flood8.png';
+import everglades1 from './everglades1.png';
+import everglades2 from './everglades2.png';
+import everglades3 from './everglades3.png';
+import everglades4 from './everglades4.png';
+import everglades5 from './everglades5.png';
+import everglades6 from './everglades6.png';
+import everglades7 from './everglades7.png';
+import everglades8 from './everglades8.png';
+import everglades9 from './everglades9.png';
+import everglades10 from './everglades10.png';
+import disaster1 from './disaster1.png';
+import disaster2 from './disaster2.png';
+import disaster3 from './disaster3.png';
+import disaster4 from './disaster4.png';
+import disaster5 from './disaster5.png';
+import disaster6 from './disaster6.png';
+import football1 from './football1.png';
+import football2 from './football2.png';
+import football3 from './football3.png';
+import football4 from './football4.png';
+import football5 from './football5.png';
+import football6 from './football6.png';
+import stock1 from './stock1.png';
+import stock2 from './stock2.png';
+import stock3 from './stock3.png';
+import stock4 from './stock4.png';
+import stock5 from './stock5.png';
+import stock6 from './stock6.png';
+import stock7 from './stock7.png';
+import stock8 from './stock8.png';
+import journal1 from './journal1.png';
+import journal2 from './journal2.png';
+import journal3 from './journal3.png';
+import journal4 from './journal4.png';
+import route1 from './route1.png';
+import route2 from './route2.png';
+import route3 from './route3.png';
+import route4 from './route4.png';
+
 import { GraduationCap, Award, BookOpen, Star, Github, Linkedin, Mail, FileText, Globe, Glasses, Brain, Palette, Gamepad2, Code, Cpu, MapPin, Target, Monitor} from 'lucide-react';
 
 const AnimatedBackground = () => {
@@ -160,6 +238,148 @@ const SkillOrb = ({ position, color, label, description, onClick }) => {
   );
 };
 
+const personalProjects = [
+  {
+    title: "Disaster Response AI Simulator",
+    type: "AI & Simulation",
+    description: "Dynamic traffic and emergency response simulator in Unity using intelligent agents with A* pathfinding. Models real-time civilian evacuation and emergency vehicle routing during disasters (fires, floods, accidents) in a GIS-based virtual city environment.",
+    tech: ["Unity", "C#", "A* Pathfinding", "AI Agents", "ArcGIS CityEngine", "FSM", "Decision Trees"],
+    links: { github: "https://github.com/rs-dkd/DisasterResponseAI" },
+    images: [disaster1, disaster2, disaster3, disaster4, disaster5, disaster6]
+  },
+  {
+    title: "Everglades VR Experience",
+    type: "VR/Unity",
+    description: "Immersive VR adventure exploring the Everglades with realistic flora/fauna animations, designed to enhance conservation awareness through interactive education.",
+    tech: ["Unity", "C#", "VR", "3D Modeling", "Environmental Design"],
+    links: { github: "https://github.com/rs-dkd/EvergladesVR" },
+    images: [everglades1, everglades2, everglades3, everglades4, everglades5, everglades6, everglades7, everglades8, everglades9, everglades10]
+  },
+  {
+    title: "Stock Price Prediction with Twitter Sentiment",
+    type: "Data Science",
+    description: "Built machine learning models combining Twitter sentiment analysis with historical stock data, featuring interactive Streamlit visualizations for investment insights.",
+    tech: ["Python", "NLP", "Machine Learning", "Streamlit", "Twitter API"],
+    links: { github: "https://github.com/rs-dkd/SentimentStockAnalysis"},
+    images: [stock1, stock2, stock3, stock4, stock5, stock6, stock7, stock8]
+  },
+  {
+    title: "College Football Statistics Analysis",
+    type: "Full-Stack",
+    description: "Comprehensive trend analysis system for college football data spanning 2004-2024 with 2,000,000+ tuples. Built React frontend with C#/.NET backend and Oracle database.",
+    tech: ["C#/.NET", "React", "Oracle Database", "D3.js", "Chart.js"],
+    links: { github: "https://github.com/rs-dkd/CollegeFootballStats" },
+    images: [football1, football2, football3, football4, football5, football6]
+  },
+  {
+    title: "Echo Journal: AI-Powered Journaling",
+    type: "Mobile App",
+    description: "iOS app using CoreML and custom NLP models to analyze emotions from journal entries, providing personalized recommendations and mood tracking.",
+    tech: ["Swift", "CoreML", "NLP", "iOS", "Core Data"],
+    links: { github: "https://github.com/rs-dkd/EchoJournal" },
+    images: [journal1, journal2, journal3, journal4]
+  },
+  {
+    title: "Programming Language Interpreter",
+    type: "Compiler Design",
+    description: "Architected a complete language processing pipeline with Lexer, Parser, Analyzer, and custom programming language supporting variables, control structures, and functions.",
+    tech: ["Java", "Compiler Design", "Abstract Syntax Trees", "Symbol Tables"],
+    links: { github: "https://github.com/rs-dkd/Programming_Language_Interpreter" },
+    images: []
+  },
+  {
+    title: "Route Optimization Visualization",
+    type: "Algorithms",
+    description: "Developed and compared A* and Dijkstra's pathfinding algorithms for real-world city navigation with interactive visualization using Bridges API.",
+    tech: ["C++", "Bridges API", "Pathfinding Algorithms", "Data Structures"],
+    links: { github: "https://github.com/rs-dkd/RouteOptimization" },
+    images: [route1, route2, route3, route4]
+  }
+];
+
+const researchProjects = [
+  {
+    title: "Graspable Memories: AI-Powered Projected Reality",
+    type: "HCI Research",
+    description: "Accepted to IEEE AIxVR 2026. Developed an Embodied Projected Mixed Reality system using AI hand tracking to enable seamless on-hand interaction with images, leveraging natural occlusion as a core interaction mechanism.",
+    tech: ["Computer Vision", "AI Hand Tracking", "Projected Reality", "HCI", "Unity", "MediaPipe"],
+    status: "Accepted",
+    collaboration: "Dr. Alexandre Gomes de Siqueira",
+    links: { },
+    images: [graspableMemories1, graspableMemories2, graspableMemories3, graspableMemories4, graspableMemories5, graspableMemories6, graspableMemories7]
+  },
+  {
+    title: "Beyond the Grasp: Volumetric EPMR (Senior Thesis)",
+    type: "HCI Research",
+    description: "Extended the Graspable Memories platform into a fully volumetric interaction model supporting hand tilt, improved tracking latency, continuous rotation, and spatial depth as control inputs. Expanded interaction modality through AI-powered object tracking. Broadened EPMR applications from personal media to collaborative creative systems.",
+    tech: ["Embodied Interaction", "Volumetric Gestures", "HCI", "Unity", "Spatial Computing"],
+    status: "Accepted",
+    collaboration: "Dr. Alexandre Gomes de Siqueira",
+    links: {},
+    images: [seniorthesis1, seniorthesis2, seniorthesis3, seniorthesis4, seniorthesis5, seniorthesis6]
+  },
+  {
+  title: "The Psychology of Command: Human-Virtual Agent Interaction",
+  type: "HCI & VR Research",
+  description: "Investigating how power dynamics and social hierarchy affect user comfort and performance in gesture-based interactions with virtual agents. Submitted as a poster to IEEE VR 2026.",
+  tech: ["VR", "HCI", "Social Dynamics", "User Study", "Unreal Engine"],
+  status: "Under Review (IEEE VR 2026)",
+  collaboration: "Dr. Alexandre Gomes de Siqueira",
+  links: {},
+  images: [psych1]
+  },
+  {
+    title: "VirtualHuman 2.0: Conversational Agentic AI in VR",
+    type: "HCI & AI",
+    description: "Developed immersive VR conversational AI with full-stack speech pipeline (Whisper STT, Gemini LLM, ElevenLabs TTS) and NeuroSync lip-sync. Leading integration of agentic AI framework for autonomous reasoning capabilities.",
+    tech: ["VR", "Conversational AI", "HCI", "Whisper", "Gemini", "ElevenLabs", "Unreal Engine", "Agentic AI"],
+    status: "Completed",
+    collaboration: "Dr. Alexandre Gomes de Siqueira",
+    links: {},
+    images: [vh1, vh2, vh3, vh4, vh5]
+  },
+  {
+    title: "Embodied Inscriptions: Fingerprints as Interactive Traces",
+    type: "Tangible HCI",
+    description: "Designed UI and led user evaluation for system repositioning fingerprints as expressive traces of presence and memory embedded in sculptable materials. Contributed to fingerprint tracking system development using computer vision.",
+    tech: ["Tangible Interfaces", "Computer Vision", "HCI", "UI Design", "User Evaluation"],
+    status: "Completed",
+    collaboration: "Dr. Alexandre Gomes de Siqueira",
+    links: {},
+    images: [inscription1, inscription2, inscription3]
+  },
+  {
+    title: "BlendReality: VR 3D Modeling",
+    type: "Graphics & HCI",
+    description: "Leading development of VR recreation of Blender with intuitive spatial modeling operations. Implementing natural hand gesture paradigms to replace traditional mouse-keyboard interfaces for 3D modeling workflows.",
+    tech: ["VR", "Spatial Computing", "3D Modeling", "HCI", "Unity", "Polyhedral-Net Splines"],
+    status: "Completed",
+    collaboration: "Dr. Jörg Peters",
+    links: { github: "https://github.com/rs-dkd/BlendReality" }, 
+    images: [blend1, blend2, blend3, blend4, blend5, blend6, blend7, blend8]
+    },
+  {
+    title: "AR-Guided Neonatal Occupational Therapy",
+    type: "Medical AR/VR",
+    description: "Designing VR/AR platform for neonatal occupational therapy training in collaboration with Shands Hospital. Created VR training environment and AR passthrough interface for guided parent exercises with real-time feedback.",
+    tech: ["AR", "VR", "Medical Visualization", "HCI", "Unity", "Interactive Guidance"],
+    status: "In Progress",
+    collaboration: "Dr. Jörg Peters & Dr. Weiss, Shands Hospital",
+    links: {},
+    images: [neonatal1, neonatal2, neonatal3, neonatal4, neonatal5, neonatal6, neonatal7]
+  },
+  {
+    title: "FloodRisk Digital Twins in VR/AR",
+    type: "Environmental HCI",
+    description: "Creating AI-powered flood risk simulations using digital twins in VR/AR for climate resilience planning. Designed VR interface with user tagging system for perceived damage/risk assessment and data-driven UI for subjective perception capture.",
+    tech: ["VR/AR", "Digital Twins", "Environmental HCI", "Unity", "Unreal Engine", "User Interface Design"],
+    status: "In Progress",
+    collaboration: "Dr. Karla Saldaña Ochoa",
+    links: {},
+    images: [flood1, flood2, flood3, flood4, flood5, flood6, flood7, flood8]
+  }
+];
+
 const Portfolio = () => {
   const [currentSection, setCurrentSection] = useState('home');
   const [showParticles, setShowParticles] = useState(true);
@@ -171,6 +391,21 @@ const Portfolio = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [navVisible, setNavVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [projectFilter, setProjectFilter] = useState('all');
+  
+  const allProjectsRef = useRef([...researchProjects, ...personalProjects]);
+  const researchProjectsRef = useRef(researchProjects);
+  const personalProjectsRef = useRef(personalProjects);
+
+  const filteredProjects = useMemo(() => {
+    if (projectFilter === 'all') {
+      return allProjectsRef.current;
+    } else if (projectFilter === 'research') {
+      return researchProjectsRef.current;
+    } else {
+      return personalProjectsRef.current;
+    }
+  }, [projectFilter]);
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     handleResize();
@@ -253,88 +488,6 @@ const onNavClick = (e, item) => {
   }
   scrollToSection(item);
 };
-
-  const researchProjects = [
-    {
-      title: "Graspable Memories: AI-Powered Projected Reality",
-      type: "HCI Research",
-      description: "Accepted to IEEE AIxVR 2026. Developed an Embodied Projected Mixed Reality system using AI hand tracking to enable seamless on-hand interaction with images, leveraging natural occlusion as a core interaction mechanism.",
-      tech: ["Computer Vision", "AI Hand Tracking", "Projected Reality", "HCI", "Unity", "MediaPipe"],
-      status: "Accepted",
-      collaboration: "Dr. Alexandre Gomes de Siqueira",
-      links: { },
-      images: [graspableMemories1, graspableMemories2, graspableMemories3, graspableMemories4, graspableMemories5, graspableMemories6, graspableMemories7]
-    },
-    {
-      title: "Beyond the Grasp: Volumetric EPMR (Senior Thesis)",
-      type: "HCI Research",
-      description: "Extended the Graspable Memories platform into a fully volumetric interaction model supporting hand tilt, improved tracking latency, continuous rotation, and spatial depth as control inputs. Expanded interaction modality through AI-powered object tracking. Broadened EPMR applications from personal media to collaborative creative systems.",
-      tech: ["Embodied Interaction", "Volumetric Gestures", "HCI", "Unity", "Spatial Computing"],
-      status: "Accepted",
-      collaboration: "Dr. Alexandre Gomes de Siqueira",
-      links: {},
-      images: []
-    },
-    {
-    title: "The Psychology of Command: Human-Virtual Agent Interaction",
-    type: "HCI & VR Research",
-    description: "Investigating how power dynamics and social hierarchy affect user comfort and performance in gesture-based interactions with virtual agents. Submitted as a poster to IEEE VR 2026.",
-    tech: ["VR", "HCI", "Social Dynamics", "User Study", "Unreal Engine"],
-    status: "Under Review (IEEE VR 2026)",
-    collaboration: "Dr. Alexandre Gomes de Siqueira",
-    links: {},
-    images: []
-    },
-    {
-      title: "VirtualHuman 2.0: Conversational Agentic AI in VR",
-      type: "HCI & AI",
-      description: "Developed immersive VR conversational AI with full-stack speech pipeline (Whisper STT, Gemini LLM, ElevenLabs TTS) and NeuroSync lip-sync. Leading integration of agentic AI framework for autonomous reasoning capabilities.",
-      tech: ["VR", "Conversational AI", "HCI", "Whisper", "Gemini", "ElevenLabs", "Unreal Engine", "Agentic AI"],
-      status: "Completed",
-      collaboration: "Dr. Alexandre Gomes de Siqueira",
-      links: {},
-      images: []
-    },
-    {
-      title: "Embodied Inscriptions: Fingerprints as Interactive Traces",
-      type: "Tangible HCI",
-      description: "Designed UI and led user evaluation for system repositioning fingerprints as expressive traces of presence and memory embedded in sculptable materials. Contributed to fingerprint tracking system development using computer vision.",
-      tech: ["Tangible Interfaces", "Computer Vision", "HCI", "UI Design", "User Evaluation"],
-      status: "Completed",
-      collaboration: "Dr. Alexandre Gomes de Siqueira",
-      links: {},
-      images: []
-    },
-    {
-      title: "BlendReality: VR 3D Modeling",
-      type: "Graphics & HCI",
-      description: "Leading development of VR recreation of Blender with intuitive spatial modeling operations. Implementing natural hand gesture paradigms to replace traditional mouse-keyboard interfaces for 3D modeling workflows.",
-      tech: ["VR", "Spatial Computing", "3D Modeling", "HCI", "Unity", "Polyhedral-Net Splines"],
-      status: "Completed",
-      collaboration: "Dr. Jörg Peters",
-      links: { github: "https://github.com/rs-dkd/BlendReality" }, images: []
-      },
-    {
-      title: "AR-Guided Neonatal Occupational Therapy",
-      type: "Medical AR/VR",
-      description: "Designing VR/AR platform for neonatal occupational therapy training in collaboration with Shands Hospital. Created VR training environment and AR passthrough interface for guided parent exercises with real-time feedback.",
-      tech: ["AR", "VR", "Medical Visualization", "HCI", "Unity", "Interactive Guidance"],
-      status: "In Progress",
-      collaboration: "Dr. Jörg Peters & Dr. Weiss, Shands Hospital",
-      links: {},
-      images: []
-    },
-    {
-      title: "FloodRisk Digital Twins in VR/AR",
-      type: "Environmental HCI",
-      description: "Creating AI-powered flood risk simulations using digital twins in VR/AR for climate resilience planning. Designed VR interface with user tagging system for perceived damage/risk assessment and data-driven UI for subjective perception capture.",
-      tech: ["VR/AR", "Digital Twins", "Environmental HCI", "Unity", "Unreal Engine", "User Interface Design"],
-      status: "In Progress",
-      collaboration: "Dr. Karla Saldaña Ochoa",
-      links: {},
-      images: []
-    }
-  ];
 
   const EducationSection = () => {
     const courses = {
@@ -553,7 +706,6 @@ const onNavClick = (e, item) => {
           `}
         </style>
 
-        {/* Section Header */}
         <div style={styles.header}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
             <GraduationCap size={40} color="#60a5fa" />
@@ -562,7 +714,6 @@ const onNavClick = (e, item) => {
           <p style={{ color: '#94a3b8', fontSize: '1.125rem' }}>Academic Journey & Achievements</p>
         </div>
 
-        {/* University of Florida */}
         <div 
           style={styles.card}
           onMouseEnter={(e) => e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)'}
@@ -583,7 +734,6 @@ const onNavClick = (e, item) => {
             </div>
           </div>
 
-          {/* Honors */}
           <div style={styles.honorsBox}>
             <div style={styles.sectionTitle}>
               <Award size={20} color="#c084fc" />
@@ -599,7 +749,6 @@ const onNavClick = (e, item) => {
             </ul>
           </div>
 
-          {/* Research Focus */}
           <div style={{ marginBottom: '1.5rem' }}>
             <h3 style={styles.sectionTitle}>Research Focus</h3>
             <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
@@ -618,7 +767,6 @@ const onNavClick = (e, item) => {
             </div>
           </div>
 
-          {/* Courses */}
           <div>
             <div style={styles.sectionTitle}>
               <BookOpen size={20} color="#60a5fa" />
@@ -635,7 +783,6 @@ const onNavClick = (e, item) => {
           </div>
         </div>
 
-        {/* University of Central Florida */}
         <div 
           style={styles.card}
           onMouseEnter={(e) => e.currentTarget.style.borderColor = 'rgba(59, 130, 246, 0.5)'}
@@ -649,7 +796,6 @@ const onNavClick = (e, item) => {
             </div>
           </div>
 
-          {/* Courses */}
           <div>
             <div style={styles.sectionTitle}>
               <BookOpen size={20} color="#60a5fa" />
@@ -666,7 +812,6 @@ const onNavClick = (e, item) => {
           </div>
         </div>
 
-        {/* Academic Timeline */}
         <div style={styles.timelineContainer}>
           <h3 style={styles.timelineTitle}>Academic Timeline</h3>
           <div style={styles.timelineWrapper}>
@@ -713,7 +858,6 @@ const onNavClick = (e, item) => {
         alignItems: 'center'
       }} onClick={(e) => e.stopPropagation()}>
         
-        {/* Close Button */}
         <button onClick={onClose} style={{
           position: 'absolute',
           top: '-2.5rem',
@@ -733,7 +877,6 @@ const onNavClick = (e, item) => {
           zIndex: 1001
         }}>✕</button>
         
-        {/* Navigation Container */}
         <div style={{
           position: 'relative',
           width: '100%',
@@ -743,7 +886,6 @@ const onNavClick = (e, item) => {
           gap: '1rem'
         }}>
           
-          {/* Left Arrow */}
           {project.images.length > 1 && (
             <button 
               onClick={(e) => {
@@ -780,7 +922,6 @@ const onNavClick = (e, item) => {
             </button>
           )}
           
-          {/* Image */}
           <img 
             src={project.images[currentIndex]} 
             alt={`${project.title} - Image ${currentIndex + 1}`}
@@ -796,7 +937,6 @@ const onNavClick = (e, item) => {
             }} 
           />
           
-          {/* Right Arrow */}
           {project.images.length > 1 && (
             <button 
               onClick={(e) => {
@@ -834,7 +974,6 @@ const onNavClick = (e, item) => {
           )}
         </div>
         
-        {/* Image Counter */}
         {project.images.length > 1 && (
           <div style={{
             textAlign: 'center',
@@ -851,7 +990,6 @@ const onNavClick = (e, item) => {
           </div>
         )}
         
-        {/* Project Title */}
         <div style={{
           textAlign: 'center',
           color: 'white',
@@ -870,65 +1008,158 @@ const onNavClick = (e, item) => {
     </div>
   );
 };
-
-  const personalProjects = [
-    {
-      title: "Disaster Response AI Simulator",
-      type: "AI & Simulation",
-      description: "Dynamic traffic and emergency response simulator in Unity using intelligent agents with A* pathfinding. Models real-time civilian evacuation and emergency vehicle routing during disasters (fires, floods, accidents) in a GIS-based virtual city environment.",
-      tech: ["Unity", "C#", "A* Pathfinding", "AI Agents", "ArcGIS CityEngine", "FSM", "Decision Trees"],
-      links: { github: "https://github.com/rs-dkd/DisasterResponseAI" },
-      images: []
-    },
-    {
-      title: "Everglades VR Experience",
-      type: "VR/Unity",
-      description: "Immersive VR adventure exploring the Everglades with realistic flora/fauna animations, designed to enhance conservation awareness through interactive education.",
-      tech: ["Unity", "C#", "VR", "3D Modeling", "Environmental Design"],
-      links: { github: "https://github.com/rs-dkd/EvergladesVR" },
-      images: []
-    },
-    {
-      title: "Echo Journal: AI-Powered Journaling",
-      type: "Mobile App",
-      description: "iOS app using CoreML and custom NLP models to analyze emotions from journal entries, providing personalized recommendations and mood tracking.",
-      tech: ["Swift", "CoreML", "NLP", "iOS", "Core Data"],
-      links: { github: "https://github.com/rs-dkd/EchoJournal" },
-      images: []
-    },
-    {
-      title: "Stock Price Prediction with Twitter Sentiment",
-      type: "Data Science",
-      description: "Built machine learning models combining Twitter sentiment analysis with historical stock data, featuring interactive Streamlit visualizations for investment insights.",
-      tech: ["Python", "NLP", "Machine Learning", "Streamlit", "Twitter API"],
-      links: { github: "https://github.com/rs-dkd/SentimentStockAnalysis"},
-      images: []
-    },
-    {
-      title: "College Football Statistics Analysis",
-      type: "Full-Stack",
-      description: "Comprehensive trend analysis system for college football data spanning 2004-2024 with 500,000+ tuples. Built React frontend with C#/.NET backend and Oracle database.",
-      tech: ["C#/.NET", "React", "Oracle Database", "D3.js", "Chart.js"],
-      links: { github: "https://github.com/rs-dkd/CollegeFootballStats" },
-      images: []
-    },
-    {
-      title: "Programming Language Interpreter",
-      type: "Compiler Design",
-      description: "Architected a complete language processing pipeline with Lexer, Parser, Analyzer, and custom programming language supporting variables, control structures, and functions.",
-      tech: ["Java", "Compiler Design", "Abstract Syntax Trees", "Symbol Tables"],
-      links: { github: "https://github.com/rs-dkd/Programming_Language_Interpreter" },
-      images: []
-    },
-    {
-      title: "Route Optimization Visualization",
-      type: "Algorithms",
-      description: "Developed and compared A* and Dijkstra's pathfinding algorithms for real-world city navigation with interactive visualization using Bridges API.",
-      tech: ["C++", "Bridges API", "Pathfinding Algorithms", "Data Structures"],
-      links: { github: "https://github.com/rs-dkd/RouteOptimization" },
-      images: []
+const ProjectCube = ({ projects, onProjectClick }) => {
+  const meshRef = useRef();
+  const [hoveredFace, setHoveredFace] = useState(null);
+  const [materials, setMaterials] = useState([]);
+  
+  const selectedProjectsRef = useRef(null);
+  const selectedImagesRef = useRef(null);
+  const projectsKeyRef = useRef('');
+  
+  const projectsKey = useMemo(() => {
+    return projects.map(p => p.title).sort().join('|');
+  }, [projects]);
+  
+  if (projectsKeyRef.current !== projectsKey) {
+    projectsKeyRef.current = projectsKey;
+    const projectsWithImages = projects.filter(p => p.images && p.images.length > 0);
+    const shuffled = [...projectsWithImages].sort(() => Math.random() - 0.5);
+    selectedProjectsRef.current = shuffled.slice(0, 6);
+    selectedImagesRef.current = selectedProjectsRef.current.map(project => 
+      project.images[Math.floor(Math.random() * project.images.length)]
+    );
+  }
+  
+  useEffect(() => {
+    if (!selectedImagesRef.current) return;
+    
+    const newMaterials = [];
+    let loadedCount = 0;
+    
+    selectedImagesRef.current.forEach((imageSrc, index) => {
+      const canvas = document.createElement('canvas');
+      canvas.width = 1024;
+      canvas.height = 1024;
+      const ctx = canvas.getContext('2d');
+      
+      ctx.fillStyle = '#000000';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      
+      const material = new THREE.MeshStandardMaterial({
+        color: 0xffffff,
+        roughness: 0.8,
+        metalness: 0.1,
+        emissive: new THREE.Color(0x000000),
+        emissiveIntensity: 0
+      });
+      
+      newMaterials[index] = material;
+      
+      img.onload = () => {
+        const imgAspect = img.width / img.height;
+        let drawWidth, drawHeight, drawX, drawY;
+        
+        drawHeight = canvas.height;
+        drawWidth = canvas.height * imgAspect;
+        drawX = (canvas.width - drawWidth) / 2;
+        drawY = 0;
+        
+        ctx.drawImage(img, drawX, drawY, drawWidth, drawHeight);
+        
+        const texture = new THREE.CanvasTexture(canvas);
+        texture.colorSpace = THREE.SRGBColorSpace;
+        texture.needsUpdate = true;
+        
+        material.map = texture;
+        material.needsUpdate = true;
+        
+        loadedCount++;
+        
+        if (loadedCount === selectedImagesRef.current.length) {
+          setMaterials([...newMaterials]);
+        }
+      };
+      
+      img.onerror = () => {
+        console.error(`Failed to load image: ${imageSrc}`);
+        loadedCount++;
+        if (loadedCount === selectedImagesRef.current.length) {
+          setMaterials([...newMaterials]);
+        }
+      };
+      
+      img.src = imageSrc;
+    });
+  }, [projectsKey]);
+  
+  useFrame((state, delta) => {
+    if (meshRef.current && hoveredFace === null) {
+      meshRef.current.rotation.y += delta * 0.2;
+      meshRef.current.rotation.x += delta * 0.1;
     }
-  ];
+    
+    materials.forEach((material, index) => {
+      if (hoveredFace === index) {
+        material.emissive.setHex(0xa78bfa);
+        material.emissiveIntensity = 0.5;
+      } else {
+        material.emissive.setHex(0x000000);
+        material.emissiveIntensity = 0;
+      }
+    });
+  });
+  
+  const handlePointerMove = (event) => {
+    event.stopPropagation();
+    const faceIndex = Math.floor(event.faceIndex / 2);
+    setHoveredFace(faceIndex);
+    document.body.style.cursor = 'pointer';
+  };
+  
+  const handleClick = (event) => {
+    event.stopPropagation();
+    const faceIndex = Math.floor(event.faceIndex / 2);
+    const project = selectedProjectsRef.current?.[faceIndex];
+    if (project) {
+      onProjectClick(project);
+    }
+  };
+  
+  if (materials.length < 6) {
+    return (
+      <mesh>
+        <boxGeometry args={[3, 3, 3]} />
+        <meshStandardMaterial color="#4338ca" />
+      </mesh>
+    );
+  }
+  
+  return (
+    <group>
+      <mesh
+        ref={meshRef}
+        onClick={handleClick}
+        onPointerMove={handlePointerMove}
+        onPointerOut={(e) => {
+          e.stopPropagation();
+          setHoveredFace(null);
+          document.body.style.cursor = 'default';
+        }}
+        material={materials}
+      >
+        <boxGeometry args={[3, 3, 3]} />
+      </mesh>
+      
+      <ambientLight intensity={1.2} />
+      <directionalLight position={[5, 5, 5]} intensity={0.8} color="#ffffff" />
+      <directionalLight position={[-5, -5, -5]} intensity={0.3} color="#ffffff" />
+    </group>
+  );
+};
 
   const skillCategories = [
     {
@@ -1637,7 +1868,12 @@ const onNavClick = (e, item) => {
       transform: 'translateY(20px)'
     }
   };
-
+    const projectCubeElement = useMemo(() => (
+    <ProjectCube 
+      projects={filteredProjects}
+      onProjectClick={(project) => setSelectedProject(project)}
+    />
+  ), [filteredProjects]);
   return (
     <div style={styles.container}>
       <nav style={{...styles.nav, transform: navVisible ? 'translateY(0)' : 'translateY(-100%)'}}>
@@ -1956,7 +2192,114 @@ const onNavClick = (e, item) => {
           </div>
         </div>
       </section>
-
+      
+      <section style={{...styles.section, padding: '4rem 2rem'}}>
+  <div>
+    <h2 style={{...styles.sectionTitle, marginBottom: '1rem'}}>Interactive Project Showcase</h2>
+    <p style={{
+      textAlign: 'center',
+      color: '#c4b5fd',
+      fontSize: '1.1rem',
+      marginBottom: '3rem',
+      maxWidth: '700px',
+      margin: '0 auto 3rem auto'
+    }}>
+      Click on any face to explore projects. Drag to rotate the polyhedron.
+    </p>
+    <div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  gap: '1rem',
+  marginBottom: '2rem',
+  flexWrap: 'wrap'
+}}>
+  {[
+    { label: 'All Projects', value: 'all' },
+    { label: 'Research Only', value: 'research' },
+    { label: 'Personal Only', value: 'personal' }
+  ].map((filter) => (
+    <button
+      key={filter.value}
+      onClick={() => setProjectFilter(filter.value)}
+      style={{
+        background: projectFilter === filter.value 
+          ? 'linear-gradient(45deg, #7c3aed, #ec4899)' 
+          : 'rgba(255, 255, 255, 0.05)',
+        border: projectFilter === filter.value
+          ? 'none'
+          : '1px solid rgba(255, 255, 255, 0.2)',
+        color: 'white',
+        padding: '0.75rem 1.5rem',
+        borderRadius: '25px',
+        fontSize: '0.95rem',
+        fontWeight: '600',
+        cursor: 'pointer',
+        transition: 'all 0.3s ease',
+        boxShadow: projectFilter === filter.value
+          ? '0 10px 25px rgba(124, 58, 237, 0.4)'
+          : 'none'
+      }}
+      onMouseEnter={(e) => {
+        if (projectFilter !== filter.value) {
+          e.target.style.background = 'rgba(255, 255, 255, 0.1)';
+        }
+      }}
+      onMouseLeave={(e) => {
+        if (projectFilter !== filter.value) {
+          e.target.style.background = 'rgba(255, 255, 255, 0.05)';
+        }
+      }}
+    >
+      {filter.label}
+    </button>
+  ))}
+</div>
+    <div style={{
+      height: '500px',
+      width: '100%',
+      maxWidth: '800px',
+      margin: '0 auto',
+      background: 'rgba(0, 0, 0, 0.2)',
+      borderRadius: '24px',
+      border: '1px solid rgba(167, 139, 250, 0.3)',
+      overflow: 'hidden',
+      position: 'relative'
+    }}>
+      <Canvas camera={{ position: [0, 0, 8], fov: 50 }}
+      style={{ pointerEvents: 'auto' }}>
+        <ambientLight intensity={0.5} />
+        <pointLight position={[10, 10, 10]} intensity={1} />
+        <Suspense fallback={null}>
+          {projectCubeElement}
+        </Suspense>
+        <OrbitControls 
+          enableZoom={true}
+          enablePan={false}
+          minDistance={5}
+          maxDistance={15}
+          autoRotate={false}
+          enableDamping={true}
+          dampingFactor={0.05}
+          mouseButtons={{
+            LEFT: THREE.MOUSE.ROTATE,
+            MIDDLE: THREE.MOUSE.DOLLY,
+            RIGHT: THREE.MOUSE.PAN
+          }}
+        />
+        <Stars radius={100} depth={50} count={2000} factor={4} fade speed={1} />
+      </Canvas>
+    </div>
+    
+    <div style={{
+      textAlign: 'center',
+      marginTop: '2rem',
+      color: '#94a3b8',
+      fontSize: '0.9rem'
+    }}>
+      Scroll to zoom • Drag to rotate • Click faces to view project images
+    </div>
+  </div>
+</section>
       <section id="research" style={styles.section}>
         <div>
           <h2 style={styles.sectionTitle}>Research Projects</h2>
