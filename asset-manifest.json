@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/my-portfolio/static/css/main.e6c13ad2.css",
-    "main.js": "/my-portfolio/static/js/main.1f510ffc.js",
+    "main.js": "/my-portfolio/static/js/main.74e34284.js",
     "static/js/453.38208c36.chunk.js": "/my-portfolio/static/js/453.38208c36.chunk.js",
     "static/media/seniorthesis6.png": "/my-portfolio/static/media/seniorthesis6.dc5f84bec777d788afe2.png",
     "static/media/inscription2.png": "/my-portfolio/static/media/inscription2.ead0454a67e1741ba93d.png",
@@ -64,7 +64,7 @@
     "static/media/virtualhuman4.png": "/my-portfolio/static/media/virtualhuman4.faa906ab2a91a4292299.png",
     "static/media/everglades6.png": "/my-portfolio/static/media/everglades6.7204ec5717cb3daf0ca8.png",
     "static/media/segovia_resume.pdf": "/my-portfolio/static/media/segovia_resume.40d1e2c3232a1f1487b5.pdf",
-    "static/media/segovia_cv.pdf": "/my-portfolio/static/media/segovia_cv.482604644784bf92c5e8.pdf",
+    "static/media/segovia_cv.pdf": "/my-portfolio/static/media/segovia_cv.86966401ffdacd07cbb3.pdf",
     "static/media/graspable-memories-7.png": "/my-portfolio/static/media/graspable-memories-7.6f628266e254300bac1a.png",
     "static/media/journal2.png": "/my-portfolio/static/media/journal2.2b562f50b0d031df3ac1.png",
     "static/media/stock6.png": "/my-portfolio/static/media/stock6.2fb0275c5fa15d64a776.png",
@@ -91,11 +91,11 @@
     "static/media/football5.png": "/my-portfolio/static/media/football5.513ff3f95c5bd0f09c5a.png",
     "index.html": "/my-portfolio/index.html",
     "main.e6c13ad2.css.map": "/my-portfolio/static/css/main.e6c13ad2.css.map",
-    "main.1f510ffc.js.map": "/my-portfolio/static/js/main.1f510ffc.js.map",
+    "main.74e34284.js.map": "/my-portfolio/static/js/main.74e34284.js.map",
     "453.38208c36.chunk.js.map": "/my-portfolio/static/js/453.38208c36.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.1f510ffc.js"
+    "static/js/main.74e34284.js"
   ]
 }
