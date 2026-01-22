@@ -313,7 +313,7 @@ const researchProjects = [
     type: "HCI Research",
     description: "Extended the Graspable Memories platform into a fully volumetric interaction model supporting hand tilt, improved tracking latency, continuous rotation, and spatial depth as control inputs. Expanded interaction modality through AI-powered object tracking. Broadened EPMR applications from personal media to collaborative creative systems.",
     tech: ["Embodied Interaction", "Volumetric Gestures", "HCI", "Unity", "Spatial Computing"],
-    status: "Accepted",
+    status: "Published",
     collaboration: "Dr. Alexandre Gomes de Siqueira",
     links: {},
     images: [seniorthesis1, seniorthesis2, seniorthesis3, seniorthesis4, seniorthesis5, seniorthesis6]
@@ -321,7 +321,7 @@ const researchProjects = [
   {
   title: "The Psychology of Command: Human-Virtual Agent Interaction",
   type: "HCI & VR Research",
-  description: "Investigating how power dynamics and social hierarchy affect user comfort and performance in gesture-based interactions with virtual agents. Submitted as a poster to IEEE VR 2026.",
+  description: "Investigating how power dynamics and social hierarchy affect user comfort and performance in gesture-based interactions with virtual agents. Accepted as a poster to IEEE VR 2026.",
   tech: ["VR", "HCI", "Social Dynamics", "User Study", "Unreal Engine"],
   status: "Under Review (IEEE VR 2026)",
   collaboration: "Dr. Alexandre Gomes de Siqueira",
@@ -1297,7 +1297,7 @@ const ProjectCube = ({ projects, onProjectClick }) => {
       achievements: [
         "Lead developer of AI-powered projected reality system (Graspable Memories) - paper accepted to IEEE AIxVR 2026",
         "Extending platform into fully volumetric interaction model for senior thesis (Beyond the Grasp)",
-        "Co-authored research on power dynamics in human-agent interaction, resulting in a submission to IEEE VR 2026",
+        "Co-authored research on power dynamics in human-agent interaction, resulting in a poster accepted to IEEE VR 2026",
         "Built VR conversational AI system integrating Whisper, Gemini LLM, ElevenLabs TTS, and NeuroSync lip-sync",
         "Leading integration of agentic AI framework with autonomous reasoning capabilities",
         "Designed UI and conducted user evaluation for Embodied Inscriptions fingerprint tracking system"
@@ -2064,7 +2064,7 @@ const ProjectCube = ({ projects, onProjectClick }) => {
                 {[
                   { label: "GPA", value: "3.83" },
                   { label: "Research Projects", value: "8" },
-                  { label: "Publications", value: "2 Accepted\n1 Submitted", smallText: true },
+                  { label: "Publications", value: "1 Published\n2 Accepted", smallText: true },
                   { label: "Research Focus", value: "HCI &\nGraphics" }
                 ].map((stat, index) => (
                   <div 
