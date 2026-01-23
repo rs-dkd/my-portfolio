@@ -323,7 +323,7 @@ const researchProjects = [
   type: "HCI & VR Research",
   description: "Investigating how power dynamics and social hierarchy affect user comfort and performance in gesture-based interactions with virtual agents. Accepted as a poster to IEEE VR 2026.",
   tech: ["VR", "HCI", "Social Dynamics", "User Study", "Unreal Engine"],
-  status: "Under Review (IEEE VR 2026)",
+  status: "Accepted",
   collaboration: "Dr. Alexandre Gomes de Siqueira",
   links: {},
   images: [psych1]
