@@ -5,6 +5,9 @@ import * as THREE from 'three';
 import profilePic from './reggie-pic.png';
 import resumePDF from './segovia_resume.pdf';
 import cvPDF from './segovia_cv.pdf';
+import graspableMemoriesPDF from './graspable-memories-paper.pdf';
+import beyondTheGraspPDF from './beyond-the-grasp-paper.pdf';
+import gesturesPolitenessPDF from './gestural-politeness-paper.pdf';
 import graspableMemories1 from './graspable-memories-1.png';
 import graspableMemories2 from './graspable-memories-2.png';
 import graspableMemories3 from './graspable-memories-3.png';
@@ -305,7 +308,7 @@ const researchProjects = [
     tech: ["Computer Vision", "AI Hand Tracking", "Projected Reality", "HCI", "Unity", "MediaPipe"],
     status: "Accepted",
     collaboration: "Dr. Alexandre Gomes de Siqueira",
-    links: { },
+    links: { paper: graspableMemoriesPDF },
     images: [graspableMemories1, graspableMemories2, graspableMemories3, graspableMemories4, graspableMemories5, graspableMemories6, graspableMemories7]
   },
   {
@@ -315,7 +318,7 @@ const researchProjects = [
     tech: ["Embodied Interaction", "Volumetric Gestures", "HCI", "Unity", "Spatial Computing"],
     status: "Published",
     collaboration: "Dr. Alexandre Gomes de Siqueira",
-    links: {},
+    links: { paper: beyondTheGraspPDF },
     images: [seniorthesis1, seniorthesis2, seniorthesis3, seniorthesis4, seniorthesis5, seniorthesis6]
   },
   {
@@ -325,7 +328,7 @@ const researchProjects = [
   tech: ["VR", "HCI", "Social Dynamics", "User Study", "Unreal Engine"],
   status: "Accepted",
   collaboration: "Dr. Alexandre Gomes de Siqueira",
-  links: {},
+  links: { paper: gesturesPolitenessPDF },
   images: [psych1]
   },
   {
@@ -1338,9 +1341,23 @@ const ProjectCube = ({ projects, onProjectClick }) => {
 
   const workExperience = [
     {
+      title: "Chief Scientist",
+      company: "NASA L'SPACE Program",
+      period: "Jan 2026 - Present",
+      location: "Remote / Tempe, AZ",
+      description: "Leading the science sub-team in developing a robotic mission concept to explore permanently shadowed regions (PSRs) at the lunar south pole for volatile characterization, as part of NASA's Lucy Student Pipeline Accelerator and Competency Enabler (L'SPACE) program.",
+      achievements: [
+        "Directing development of the Science Traceability Matrix (STM) to characterize lunar volatiles in PSRs and establish measurement requirements for understanding volatile origin processes",
+        "Leading landing site selection research using NASA's JMARS/JMOON GIS tools to identify zones meeting strict illumination, communication, and slope constraints",
+        "Orchestrating mission ConOps (Phases A-B) and instrument alignment with NASA SMD goals, managing a $150M projected lifecycle budget",
+        "Coordinating interdisciplinary team of scientists, engineers, and technicians across all mission planning phases"
+      ],
+      tech: ["JMARS/JMOON", "GIS", "Python", "Mission Planning", "Science Traceability", "ConOps"]
+    },
+    {
       title: "Peer Mentor - Introduction to Virtual Reality",
       company: "University of Florida",
-      period: "Aug 2025 - Present",
+      period: "Aug 2025 - Dec 2025",
       location: "Gainesville, FL",
       description: "Supporting instruction for undergraduate VR course with 150+ students, facilitating hands-on learning with Unity XR development.",
       achievements: [
@@ -1963,8 +1980,8 @@ const ProjectCube = ({ projects, onProjectClick }) => {
         
         <div style={styles.heroContent}>
           <p style={styles.heroText}>
-            HCI Researcher specializing in projected reality interfaces, embodied interaction, computer graphics, and immersive technologies. 
-            Developing cutting-edge research in tangible interfaces, computer graphics, conversational Agentic AI in VR, and spatial computing 
+            Computer Science Researcher specializing in projected reality interfaces, artificial intelligence, embodied interaction, computer graphics, and immersive technologies. 
+            Developing cutting-edge research in tangible interfaces, VR/AR, computer graphics, agentic AI, virtual agents, and spatial computing 
             for medical, environmental, and creative applications.
           </p>
           
@@ -2045,13 +2062,13 @@ const ProjectCube = ({ projects, onProjectClick }) => {
           <div style={styles.aboutGrid}>
             <div>
               <p style={styles.aboutText}>
-                I'm a Computer Science student at the University of Florida passionate about human-computer interaction 
+                I'm a Computer Science graduate from the University of Florida passionate about human-computer interaction, artificial intelligence 
                 and immersive technologies. My research focuses on creating natural, embodied interfaces that enhance 
-                how humans interact with digital information through projected reality, VR/AR, and tangible interaction.
+                how humans interact with digital information through projected reality, VR/AR, AI, and tangible interaction.
               </p>
               <p style={styles.aboutText}>
-                Currently working on multiple HCI research projects including an AI-powered projected reality system 
-                (Accepted to IEEE AIxVR 2026), conversational Agentic AI agents in VR, AR medical applications, and 
+                Currently working on multiple HCI/AI research projects (Accepted to IEEE AIxVR 2026/IEEE VR 2026/UFIR)
+                including an AI-powered projected reality system, conversational Agentic AI agents in VR, AR medical applications, and 
                 environmental digital twins. My work bridges computer vision, spatial computing, and interaction design.
               </p>
               <p style={styles.aboutText}>
@@ -2065,7 +2082,7 @@ const ProjectCube = ({ projects, onProjectClick }) => {
                   { label: "GPA", value: "3.83" },
                   { label: "Research Projects", value: "8" },
                   { label: "Publications", value: "1 Published\n2 Accepted", smallText: true },
-                  { label: "Research Focus", value: "HCI &\nGraphics" }
+                  { label: "Research Focus", value: "HCI, AI\nGraphics" }
                 ].map((stat, index) => (
                   <div 
                     key={index} 
@@ -2600,7 +2617,7 @@ const ProjectCube = ({ projects, onProjectClick }) => {
         <div>
           <h2 style={styles.sectionTitle}>Let's Collaborate</h2>
           <p style={{...styles.heroText, textAlign: 'center', marginBottom: '3rem'}}>
-            Interested in HCI research collaborations, immersive technology projects, or discussing innovative 
+            Interested in HCI research collaborations, immersive technology projects, AI/ML implementations, or discussing innovative 
             interaction paradigms? Let's connect!
           </p>
           
@@ -2615,7 +2632,7 @@ const ProjectCube = ({ projects, onProjectClick }) => {
               { 
                 icon: <GraduationCap size={40} />, 
                 title: "Research", 
-                value: "HCI • Immersive Environments • Computer Graphics • Embodied Interaction", 
+                value: "HCI • Artificial Intelligence • Immersive Environments • Computer Graphics • Embodied Interaction", 
                 href: "#research" 
               },
               { 
@@ -2633,13 +2650,13 @@ const ProjectCube = ({ projects, onProjectClick }) => {
               { 
                 icon: <MapPin size={40} />, 
                 title: "Location", 
-                value: "Gainesville, FL", 
-                href: "https://www.google.com/maps/place/Gainesville,+FL" 
+                value: "Pittsburgh, PA", 
+                href: "https://www.google.com/maps/place/Pittsburgh,+PA" 
               },
               { 
                 icon: <Target size={40} />, 
                 title: "Focus", 
-                value: "Human-Computer Interaction", 
+                value: "Human-Computer Interaction/Artificial Intelligence/Computer Graphics", 
                 href: "#research" 
               }
             ].map((contact, index) => {
