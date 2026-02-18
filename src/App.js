@@ -2082,7 +2082,7 @@ const ProjectCube = ({ projects, onProjectClick }) => {
                   { label: "GPA", value: "3.83" },
                   { label: "Research Projects", value: "8" },
                   { label: "Publications", value: "1 Published\n2 Accepted", smallText: true },
-                  { label: "Research Focus", value: "HCI, AI\nGraphics" }
+                  { label: "Research Focus", value: "HCI, AI, Graphics" }
                 ].map((stat, index) => (
                   <div 
                     key={index} 
