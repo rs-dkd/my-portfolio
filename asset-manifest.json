@@ -1,8 +1,9 @@
 {
   "files": {
     "main.css": "/my-portfolio/static/css/main.e6c13ad2.css",
-    "main.js": "/my-portfolio/static/js/main.2c07b9a0.js",
+    "main.js": "/my-portfolio/static/js/main.33725520.js",
     "static/js/453.38208c36.chunk.js": "/my-portfolio/static/js/453.38208c36.chunk.js",
+    "static/media/beyond-the-grasp-paper.pdf": "/my-portfolio/static/media/beyond-the-grasp-paper.bb5287cb2e404d9c16d1.pdf",
     "static/media/seniorthesis6.png": "/my-portfolio/static/media/seniorthesis6.dc5f84bec777d788afe2.png",
     "static/media/inscription2.png": "/my-portfolio/static/media/inscription2.ead0454a67e1741ba93d.png",
     "static/media/seniorthesis2.png": "/my-portfolio/static/media/seniorthesis2.ac9cc4d3900c364fc45e.png",
@@ -11,6 +12,7 @@
     "static/media/everglades4.png": "/my-portfolio/static/media/everglades4.b3deee3f550c076a0de9.png",
     "static/media/flood1.png": "/my-portfolio/static/media/flood1.b3fdbfdb8d9817d2cc77.png",
     "static/media/flood3.png": "/my-portfolio/static/media/flood3.19e0f897a4b62aaa75ce.png",
+    "static/media/graspable-memories-paper.pdf": "/my-portfolio/static/media/graspable-memories-paper.acf00b20e98bb3dde94c.pdf",
     "static/media/seniorthesis1.png": "/my-portfolio/static/media/seniorthesis1.f051fba793a4a35b6b82.png",
     "static/media/reggie-pic.png": "/my-portfolio/static/media/reggie-pic.4da8d4e99a5d71a7503f.png",
     "static/media/flood4.png": "/my-portfolio/static/media/flood4.d1606a317d90b5672ecd.png",
@@ -42,6 +44,7 @@
     "static/media/journal1.png": "/my-portfolio/static/media/journal1.74e1f3b71afadf909251.png",
     "static/media/flood5.png": "/my-portfolio/static/media/flood5.deace5483a861ac4fa46.png",
     "static/media/blend1.png": "/my-portfolio/static/media/blend1.1871137536558240585c.png",
+    "static/media/gestural-politeness-paper.pdf": "/my-portfolio/static/media/gestural-politeness-paper.1edb982c8dc3824ba556.pdf",
     "static/media/disaster1.png": "/my-portfolio/static/media/disaster1.45f51d167a2e601b708e.png",
     "static/media/everglades7.png": "/my-portfolio/static/media/everglades7.421cf4977970d8618f50.png",
     "static/media/flood8.png": "/my-portfolio/static/media/flood8.920bbe43b5306e3e3ec7.png",
@@ -63,8 +66,8 @@
     "static/media/journal4.png": "/my-portfolio/static/media/journal4.7ace5aa77912cd5b3f02.png",
     "static/media/virtualhuman4.png": "/my-portfolio/static/media/virtualhuman4.faa906ab2a91a4292299.png",
     "static/media/everglades6.png": "/my-portfolio/static/media/everglades6.7204ec5717cb3daf0ca8.png",
-    "static/media/segovia_resume.pdf": "/my-portfolio/static/media/segovia_resume.40d1e2c3232a1f1487b5.pdf",
-    "static/media/segovia_cv.pdf": "/my-portfolio/static/media/segovia_cv.86966401ffdacd07cbb3.pdf",
+    "static/media/segovia_cv.pdf": "/my-portfolio/static/media/segovia_cv.b78d7e4b13d8902fc805.pdf",
+    "static/media/segovia_resume.pdf": "/my-portfolio/static/media/segovia_resume.fbf113d0d9e68c6a814f.pdf",
     "static/media/graspable-memories-7.png": "/my-portfolio/static/media/graspable-memories-7.6f628266e254300bac1a.png",
     "static/media/journal2.png": "/my-portfolio/static/media/journal2.2b562f50b0d031df3ac1.png",
     "static/media/stock6.png": "/my-portfolio/static/media/stock6.2fb0275c5fa15d64a776.png",
@@ -91,11 +94,11 @@
     "static/media/football5.png": "/my-portfolio/static/media/football5.513ff3f95c5bd0f09c5a.png",
     "index.html": "/my-portfolio/index.html",
     "main.e6c13ad2.css.map": "/my-portfolio/static/css/main.e6c13ad2.css.map",
-    "main.2c07b9a0.js.map": "/my-portfolio/static/js/main.2c07b9a0.js.map",
+    "main.33725520.js.map": "/my-portfolio/static/js/main.33725520.js.map",
     "453.38208c36.chunk.js.map": "/my-portfolio/static/js/453.38208c36.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.2c07b9a0.js"
+    "static/js/main.33725520.js"
   ]
 }
