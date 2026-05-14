@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/my-portfolio/static/css/main.e6c13ad2.css",
-    "main.js": "/my-portfolio/static/js/main.f4c697f8.js",
+    "main.css": "/my-portfolio/static/css/main.cf555dad.css",
+    "main.js": "/my-portfolio/static/js/main.b11b64fa.js",
     "static/js/453.38208c36.chunk.js": "/my-portfolio/static/js/453.38208c36.chunk.js",
     "static/media/beyond-the-grasp-paper.pdf": "/my-portfolio/static/media/beyond-the-grasp-paper.bb5287cb2e404d9c16d1.pdf",
     "static/media/seniorthesis6.png": "/my-portfolio/static/media/seniorthesis6.dc5f84bec777d788afe2.png",
@@ -93,12 +93,12 @@
     "static/media/football6.png": "/my-portfolio/static/media/football6.b094fe1d8a13dc5e6445.png",
     "static/media/football5.png": "/my-portfolio/static/media/football5.513ff3f95c5bd0f09c5a.png",
     "index.html": "/my-portfolio/index.html",
-    "main.e6c13ad2.css.map": "/my-portfolio/static/css/main.e6c13ad2.css.map",
-    "main.f4c697f8.js.map": "/my-portfolio/static/js/main.f4c697f8.js.map",
+    "main.cf555dad.css.map": "/my-portfolio/static/css/main.cf555dad.css.map",
+    "main.b11b64fa.js.map": "/my-portfolio/static/js/main.b11b64fa.js.map",
     "453.38208c36.chunk.js.map": "/my-portfolio/static/js/453.38208c36.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.f4c697f8.js"
+    "static/css/main.cf555dad.css",
+    "static/js/main.b11b64fa.js"
   ]
 }
