@@ -45,6 +45,9 @@
   },
   "homepage": "https://rs-dkd.github.io/my-portfolio",
   "devDependencies": {
-    "gh-pages": "^6.3.0"
+    "autoprefixer": "^10.5.0",
+    "gh-pages": "^6.3.0",
+    "postcss": "^8.5.14",
+    "tailwindcss": "^3.4.19"
   }
 }
